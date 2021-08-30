@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://cse.iitkgp.ac.in/~wbcm/wbcm/notices/public/cs210022021s/sicFMC.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <title>
+ Synthesis of SIC fundamental-mode asynchronous circuits
+</title><style type="text/css">
+body { margin:0; padding:0; counter-reset: mycount; }
+p {text-align:justify}
+li {text-align:justify}
+blockquote {text-align:justify}
+#noul {text-decoration:none}
+#noul:hover {text-decoration:underline}
+table {border:solid thin}
+td {border:solid thin}
+th {border:solid thin}
+dt {font-weight:bold}
+#nobd {border:none}
+
+.mycount:before{ counter-increment: mycount; content: " (" counter(mycount, lower-alpha) ") "; }
+
+#inline-list {
+ //border: 1px solid #000;
+ //margin: 2em;
+ //width: 80%;
+ //padding: 5px;
+ //font-family: Verdana, sans-serif;
+ }
+#inline-list ul, #inline-list ol, #inline-list li {
+ display: inline;
+ margin: 0;
+ padding: 0;
+ color: #339;
+ font-weight: bold;
+ }
+</style>
+<script> 
+function refreshPeriodic() { 
+   // Reload the page every 120 seconds 
+   location.reload(); 
+   timerID = setTimeout("refreshPeriodic()",1200000); 
+} 
+timerID = setTimeout("refreshPeriodic()",1200000); 
+</script>
+
+<script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+<script type="text/javascript" src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/MathJax.js.download">
+</script>
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?rev=2.6.1') format('woff'), url('https://cse.iitkgp.ac.in/~wbcm/MathJax/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?rev=2.6.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  
+<body bgcolor="#e0ffff" data-new-gr-c-s-check-loaded="14.1005.0" data-gr-ext-installed=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<table cellpadding="10" cellspacing="0" border="0" width="100%" id="nobd">
+<tbody><tr><td bgcolor="#666677" id="nobd"><h2 align="center"><font color="#ddddff">
+  Synthesis of SIC fundamental-mode asynchronous circuits
+</font></h2></td></tr></tbody></table>
+<blockquote>
+
+<h3>Motivation</h3>
+<ul> 
+<li> These are sequential m/cs working without a clock
+</li><li> Challenges of operating a clock are avoided
+</li><li> The m/c stays in a stable state for a given set of inputs called the
+     input state
+</li><li> In a particular stable state the m/c produces some stable output
+</li><li> When there is a change in the inputs the m/c responds by changing its
+     state
+</li><li> An important assumption that will be made is that only one of the
+     inputs change at a time, i.e. single input change (SIC)
+</li><li> It is further assumed that there is no change in the input until the
+	 m/c has made a transition to another stable state corresponding to the
+	 new input state
+</li><li> This is called the fundamental mode of operation
+</li></ul>
+
+<h3>Flow table</h3>
+<ul>
+<li>Consider a sequential asynchronous m/c with two inputs, <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" role="math" style="display: inline-block; width: 1.025em;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.566em, 1000.97em, 2.467em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-2" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-3" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-4" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-5" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.184em; border-left: 0px solid; width: 0px; height: 0.691em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-1">x_1</script> and <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-6" role="math" style="display: inline-block; width: 1.025em;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.566em, 1000.97em, 2.467em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-7" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-8" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-9" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-10" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.184em; border-left: 0px solid; width: 0px; height: 0.691em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-2">x_2</script> and one output <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-11" role="math" style="display: inline-block; width: 0.484em;"><span style="display: inline-block; position: relative; width: 0.424em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.566em, 1000.42em, 2.347em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-12" style="display: inline-block;"><span class="mi" id="MathJax-Span-13" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/007A.png" style="width: 7px; height: 7px; vertical-align: 0px; margin-right: 0.003em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.566em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math></span></span><script type="math/tex" id="MathJax-Element-3">z</script>
+</li><li>The primitive flow table is shown below
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center">
+<tbody><tr><td colspan="4" align="center">m/c state, output
+</td></tr><tr><td colspan="4" align="center">input state (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-14" role="math" style="display: inline-block; width: 2.467em;"><span style="display: inline-block; position: relative; width: 2.347em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.566em, 1002.35em, 2.527em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-15" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-16" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-17" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-18" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span><span class="mo" id="MathJax-Span-19" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C.png" style="width: 3px; height: 5px; vertical-align: -3px; margin-right: 0.063em;"></span><span class="msubsup" id="MathJax-Span-20" style="display: inline-block; padding-left: 0.183em;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-21" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-22" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.753em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-4">x_1, x_2</script>)
+</td></tr><tr><td>00</td><td>01</td><td>11</td><td>10
+</td></tr><tr><td style="font-weight:bold">1,0</td><td>2</td><td>—</td><td>4
+</td></tr><tr><td>1</td><td style="font-weight:bold">2,0</td><td>3</td><td>—
+</td></tr><tr><td>—</td><td>2</td><td style="font-weight:bold">3,1</td><td>4
+</td></tr><tr><td>1</td><td>—</td><td>5</td><td style="font-weight:bold">4,0</td>
+</tr><tr><td>—</td><td>2</td><td style="font-weight:bold">5,0</td><td>4
+</td></tr></tbody></table>
+</li><li>Its components are now explained
+ <ul>
+ <li>The stable state and the corresponding outputs are indicated in bold
+ </li><li>Note that there may be multiple stable states for a given input
+ </li><li>The input states are depicted so that they are adjacent to each other
+     (as in a KMap table), as on change of a single input bit, the new
+     input state will be adjacent to the old input state
+ </li><li>Some of the entries are vacant because those are not adjacent to the
+     stable state and are not directly reachable from the current stable
+     state for a change in the input state
+ </li><li>The other entries indicate unstable states (with the outputs not yet
+	 defined) to which a transition is made when there is a change in the
+	 input state
+ </li><li>Such a flow table where many things still remain undefined is called a
+	 <em>primitive flow table</em>
+ </li><li>An important point to note is that each row has only a single stable
+	 state, accordingly, that state may be considered the present state
+	 and the table can be presented exactly as the state transition table
+	 of a partially specified FSM
+ </li></ul>
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center">
+<tbody><tr><td><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-23" role="math" style="display: inline-block; width: 1.686em;"><span style="display: inline-block; position: relative; width: 1.626em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.63em, 2.647em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-24" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-25" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.626em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-26" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.54em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="mi" id="MathJax-Span-27" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.42em, 4.21em, -999.997em); top: -3.723em; left: 0.904em;"><span class="mn" id="MathJax-Span-28" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.253em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mn>1</mn><mi>A</mi></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-5">M_1^A</script></td><td colspan="4" align="center">m/c state, output
+</td></tr><tr><td rowspan="2">PS</td><td colspan="4" align="center">input state (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-29" role="math" style="display: inline-block; width: 2.467em;"><span style="display: inline-block; position: relative; width: 2.347em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.566em, 1002.35em, 2.527em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-30" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-31" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-32" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-33" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span><span class="mo" id="MathJax-Span-34" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C.png" style="width: 3px; height: 5px; vertical-align: -3px; margin-right: 0.063em;"></span><span class="msubsup" id="MathJax-Span-35" style="display: inline-block; padding-left: 0.183em;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-36" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-37" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.753em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-6">x_1, x_2</script>)
+</td></tr><tr><td>00</td><td>01</td><td>11</td><td>10
+</td></tr><tr><td>1</td><td style="font-weight:bold">1,0</td><td>2</td><td>—</td><td>4
+</td></tr><tr><td>2</td><td>1</td><td style="font-weight:bold">2,0</td><td>3</td><td>—
+</td></tr><tr><td>3</td><td>—</td><td>2</td><td style="font-weight:bold">3,1</td><td>4
+</td></tr><tr><td>4</td><td>1</td><td>—</td><td>5</td><td style="font-weight:bold">4,0</td>
+</tr><tr><td>5</td><td>—</td><td>2</td><td style="font-weight:bold">5,0</td><td>4
+</td></tr></tbody></table>
+</li></ul>
+The given flow table may be traced as follows:
+<ul>
+ <li>Let's start at the input state 00 and the stable m/c state is 1 when
+     its output is 0
+ </li><li>The input may change to either 01 or 10
+ </li><li>When the input changes to 01, the new state is 2 (as yet unstable,
+     so change in the input is permitted now)
+ </li><li>The m/c then stabilises to the m/c state 2 and has output 0
+ </li><li>If the input changes to 10, the new state is 4 (as yet unstable,
+     so change in the input is permitted now)
+ </li><li>The m/c then stabilises to the m/c state 4 and has output 0
+ <hr>
+ </li><li>Let's continue from the input state 01 and the stable m/c state is 2 when
+     its output is 0
+ </li><li>The input may change to either 00 or 11
+ </li><li>When the input changes to 11, the new state is 3 (as yet unstable,
+     so change in the input is permitted now)
+ </li><li>The m/c then stabilises to the m/c state 3 and has output 1
+ </li><li>If the input changes to 00, the new state is 1 (as yet unstable,
+     so change in the input is permitted now)
+ </li><li>The m/c then stabilises to the m/c state 1 and has output 0
+ <hr> 
+ </li><li>Similarly, when the input state 10, the only stable m/c state is 4 when
+     its output is 0
+ </li><li>The input may change to either 00 or 11
+ </li><li>When the input changes to 11, the new state is 5 (as yet unstable,
+     so change in the input is permitted now)
+ </li><li>The m/c then stabilises to the m/c state 5 and has output 0
+ </li><li>If the input changes to 00, the new state is 1 (as yet unstable,
+     so change in the input is permitted now)
+ </li><li>The m/c then stabilises to the m/c state 1 and has output 0
+ 
+ <hr> 
+ </li><li>When the input state 11, the stable m/c state may be
+     3 with output 1 or
+     5 with output 0
+ </li><li>In either case, if the input changes to 01 the new unstable state is 2
+     changing over to the stable state 2 with output 0
+ </li><li>If the input changes to 10 the new unstable state is 4
+     changing over to the stable state 4 with output 0
+</li></ul>
+<p>Along the earlier lines of minimisation of incompletely specified FSMs,
+   the merger graph and the resulting reduced m/cs for two state mergings
+   are shown below
+</p>
+
+<h3>Reduction of flow tables</h3>
+<ul>
+<li>The undefined entries essentially give rise to an incompletely
+    specified FSM
+</li><li>The minimisation technique developed for minimising incompletely
+	specified FSMs may be applied here also
+
+<svg width="200" height="200" style="border:1px white solid">
+
+<text x="100" y="40" dominant-baseline="middle" text-anchor="middle">
+	Merger graph for M1A</text>
+
+<circle cx="030" cy="090" r="4" stroke="black" stroke-width="1" fill="black"></circle>
+<circle cx="080" cy="090" r="4" stroke="black" stroke-width="1" fill="black"></circle>
+<circle cx="130" cy="090" r="4" stroke="black" stroke-width="1" fill="black"></circle>
+<circle cx="180" cy="090" r="4" stroke="black" stroke-width="1" fill="black"></circle>
+<circle cx="105" cy="160" r="4" stroke="black" stroke-width="1" fill="black"></circle>
+
+<path d="M105,160 l-25,-70 l-50,0 l75,70 l25,-70 l50,0 l-75,70" stroke="black" stroke-width="2" fill="transparent"></path>
+
+<text x="025" y="080" font-family="sans-serif" font-size="16px" fill="black">2</text>
+<text x="075" y="080" font-family="sans-serif" font-size="16px" fill="black">3</text>
+<text x="125" y="080" font-family="sans-serif" font-size="16px" fill="black">4</text>
+<text x="175" y="080" font-family="sans-serif" font-size="16px" fill="black">5</text>
+<text x="100" y="182" font-family="sans-serif" font-size="16px" fill="black">1</text>
+</svg>
+
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center">
+	<tbody><tr><td id="nobd" rowspan="2">
+<table cellpadding="10" cellspacing="0" border="0" id="nobd">
+<tbody><tr><td><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-38" role="math" style="display: inline-block; width: 1.686em;"><span style="display: inline-block; position: relative; width: 1.626em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.63em, 2.647em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-39" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-40" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.626em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-41" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.54em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="mi" id="MathJax-Span-42" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.42em, 4.21em, -999.997em); top: -3.723em; left: 0.904em;"><span class="mn" id="MathJax-Span-43" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.253em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mn>1</mn><mi>A</mi></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-7">M_1^A</script></td><td colspan="4" align="center">m/c state, output
+</td></tr><tr><td rowspan="2" align="center">PS</td><td colspan="4" align="center">input state (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-44" role="math" style="display: inline-block; width: 2.467em;"><span style="display: inline-block; position: relative; width: 2.347em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.566em, 1002.35em, 2.527em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-45" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-46" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-47" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-48" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span><span class="mo" id="MathJax-Span-49" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C.png" style="width: 3px; height: 5px; vertical-align: -3px; margin-right: 0.063em;"></span><span class="msubsup" id="MathJax-Span-50" style="display: inline-block; padding-left: 0.183em;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-51" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-52" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.753em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-8">x_1, x_2</script>)
+</td></tr><tr><td>00</td><td>01</td><td>11</td><td>10
+</td></tr><tr><td>1</td><td style="font-weight:bold">1,0</td><td>2</td><td>—</td><td>4
+</td></tr><tr><td>2</td><td>1</td><td style="font-weight:bold">2,0</td><td>3</td><td>—
+</td></tr><tr><td>3</td><td>—</td><td>2</td><td style="font-weight:bold">3,1</td><td>4
+</td></tr><tr><td>4</td><td>1</td><td>—</td><td>5</td><td style="font-weight:bold">4,0</td>
+</tr><tr><td>5</td><td>—</td><td>2</td><td style="font-weight:bold">5,0</td><td>4
+</td></tr></tbody></table>
+	</td><td id="nobd">
+<table cellpadding="10" cellspacing="0" border="0" id="nobd">
+<tbody><tr><td><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-53" role="math" style="display: inline-block; width: 2.046em;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.93em, 2.767em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-54" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-55" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-56" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.84em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="texatom" id="MathJax-Span-57" style="display: inline-block;"><span class="mrow" id="MathJax-Span-58" style="display: inline-block;"><span class="mi" id="MathJax-Span-59" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span class="mi" id="MathJax-Span-60" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0072.png" style="width: 5px; height: 5px; margin-right: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.9em, 4.33em, -999.997em); top: -3.723em; left: 0.904em;"><span class="texatom" id="MathJax-Span-61" style="display: inline-block;"><span class="mrow" id="MathJax-Span-62" style="display: inline-block;"><span class="mn" id="MathJax-Span-63" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span class="mo" id="MathJax-Span-64" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C(1).png" style="width: 2px; height: 4px; vertical-align: -2px; margin-right: 0.063em;"></span><span class="mn" id="MathJax-Span-65" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mrow class="MJX-TeXAtom-ORD"><mn>1</mn><mo>,</mo><mn>1</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>A</mi><mi>r</mi></mrow></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-9">M_{1,1}^{Ar}</script></td><td colspan="5" align="center">m/c state, output
+</td></tr><tr><td colspan="2" align="center">PS</td><td colspan="4" align="center">input state (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-10-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-66" role="math" style="display: inline-block; width: 2.467em;"><span style="display: inline-block; position: relative; width: 2.347em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.566em, 1002.35em, 2.527em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-67" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-68" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-69" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-70" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span><span class="mo" id="MathJax-Span-71" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C.png" style="width: 3px; height: 5px; vertical-align: -3px; margin-right: 0.063em;"></span><span class="msubsup" id="MathJax-Span-72" style="display: inline-block; padding-left: 0.183em;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-73" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-74" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.753em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-10">x_1, x_2</script>)
+</td></tr><tr><td>Members</td><td>Name</td><td>00</td><td>01</td><td>11</td><td>10
+</td></tr><tr><td>1,2,3</td><td>α</td><td>α,0</td><td>α,0</td><td>α,1
+	</td><td>β,<span style="color:red">0</span>
+</td></tr><tr><td>4,5</td><td>β</td><td>α,<span style="color:red">0</span>
+    </td><td>α,<span style="color:red">0</span></td><td>β,0</td><td>β,0
+</td></tr></tbody></table>
+    </td></tr><tr><td id="nobd">
+<table cellpadding="10" cellspacing="0" border="0" id="nobd">
+<tbody><tr><td><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-11-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-75" role="math" style="display: inline-block; width: 2.046em;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.93em, 2.767em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-76" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-77" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-78" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.84em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="texatom" id="MathJax-Span-79" style="display: inline-block;"><span class="mrow" id="MathJax-Span-80" style="display: inline-block;"><span class="mi" id="MathJax-Span-81" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span class="mi" id="MathJax-Span-82" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0072.png" style="width: 5px; height: 5px; margin-right: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.9em, 4.33em, -999.997em); top: -3.723em; left: 0.904em;"><span class="texatom" id="MathJax-Span-83" style="display: inline-block;"><span class="mrow" id="MathJax-Span-84" style="display: inline-block;"><span class="mn" id="MathJax-Span-85" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span class="mo" id="MathJax-Span-86" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C(1).png" style="width: 2px; height: 4px; vertical-align: -2px; margin-right: 0.063em;"></span><span class="mn" id="MathJax-Span-87" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mrow class="MJX-TeXAtom-ORD"><mn>1</mn><mo>,</mo><mn>2</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>A</mi><mi>r</mi></mrow></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-11">M_{1,2}^{Ar}</script></td><td colspan="5" align="center">m/c state, output
+</td></tr><tr><td colspan="2" align="center">PS</td><td colspan="4" align="center">input state (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-12-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-88" role="math" style="display: inline-block; width: 2.467em;"><span style="display: inline-block; position: relative; width: 2.347em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.566em, 1002.35em, 2.527em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-89" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-90" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-91" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-92" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span><span class="mo" id="MathJax-Span-93" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C.png" style="width: 3px; height: 5px; vertical-align: -3px; margin-right: 0.063em;"></span><span class="msubsup" id="MathJax-Span-94" style="display: inline-block; padding-left: 0.183em;"><span style="display: inline-block; position: relative; width: 0.965em; height: 0px;"><span style="position: absolute; clip: rect(3.428em, 1000.48em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-95" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0078.png" style="width: 8px; height: 7px; vertical-align: 0px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; top: -3.903em; left: 0.544em;"><span class="mn" id="MathJax-Span-96" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.753em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-12">x_1, x_2</script>)
+</td></tr><tr><td>Members</td><td>Name</td><td>00</td><td>01</td><td>11</td><td>10
+</td></tr><tr><td>2,3</td><td>α</td><td>β,<span style="color:red">0</span></td><td>α,0
+    </td><td>α,1</td><td>β,<span style="color:red">0</span>
+</td></tr><tr><td>1,4,5</td><td>β</td><td>β,<span>0</span>
+    </td><td>α,<span style="color:red">0</span>;</td><td>β,0</td><td>β,0
+</td></tr></tbody></table></td></tr></tbody></table>
+</li><li>Two possible mergings have been depicted in the tables for <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-97" role="math" style="display: inline-block; width: 2.046em;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.93em, 2.767em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-98" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-99" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-100" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.84em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="texatom" id="MathJax-Span-101" style="display: inline-block;"><span class="mrow" id="MathJax-Span-102" style="display: inline-block;"><span class="mi" id="MathJax-Span-103" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span class="mi" id="MathJax-Span-104" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0072.png" style="width: 5px; height: 5px; margin-right: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.9em, 4.33em, -999.997em); top: -3.723em; left: 0.904em;"><span class="texatom" id="MathJax-Span-105" style="display: inline-block;"><span class="mrow" id="MathJax-Span-106" style="display: inline-block;"><span class="mn" id="MathJax-Span-107" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span class="mo" id="MathJax-Span-108" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C(1).png" style="width: 2px; height: 4px; vertical-align: -2px; margin-right: 0.063em;"></span><span class="mn" id="MathJax-Span-109" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mrow class="MJX-TeXAtom-ORD"><mn>1</mn><mo>,</mo><mn>1</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>A</mi><mi>r</mi></mrow></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-13">M_{1,1}^{Ar}</script> and
+    <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-110" role="math" style="display: inline-block; width: 2.046em;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.93em, 2.767em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-111" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-112" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-113" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.84em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="texatom" id="MathJax-Span-114" style="display: inline-block;"><span class="mrow" id="MathJax-Span-115" style="display: inline-block;"><span class="mi" id="MathJax-Span-116" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span class="mi" id="MathJax-Span-117" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0072.png" style="width: 5px; height: 5px; margin-right: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.9em, 4.33em, -999.997em); top: -3.723em; left: 0.904em;"><span class="texatom" id="MathJax-Span-118" style="display: inline-block;"><span class="mrow" id="MathJax-Span-119" style="display: inline-block;"><span class="mn" id="MathJax-Span-120" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span class="mo" id="MathJax-Span-121" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C(1).png" style="width: 2px; height: 4px; vertical-align: -2px; margin-right: 0.063em;"></span><span class="mn" id="MathJax-Span-122" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mrow class="MJX-TeXAtom-ORD"><mn>1</mn><mo>,</mo><mn>2</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>A</mi><mi>r</mi></mrow></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-14">M_{1,2}^{Ar}</script>
+</li><li>The outputs marked red had been unspecified after merging the states; those have
+    been set to match the outputs of the stable state
+</li><li>Any choice made should avoid glitching
+ <ul>
+ <li> for <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-15-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-123" role="math" style="display: inline-block; width: 2.046em;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.93em, 2.767em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-124" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-125" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-126" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.84em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="texatom" id="MathJax-Span-127" style="display: inline-block;"><span class="mrow" id="MathJax-Span-128" style="display: inline-block;"><span class="mi" id="MathJax-Span-129" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span class="mi" id="MathJax-Span-130" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0072.png" style="width: 5px; height: 5px; margin-right: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.9em, 4.33em, -999.997em); top: -3.723em; left: 0.904em;"><span class="texatom" id="MathJax-Span-131" style="display: inline-block;"><span class="mrow" id="MathJax-Span-132" style="display: inline-block;"><span class="mn" id="MathJax-Span-133" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span class="mo" id="MathJax-Span-134" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C(1).png" style="width: 2px; height: 4px; vertical-align: -2px; margin-right: 0.063em;"></span><span class="mn" id="MathJax-Span-135" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mrow class="MJX-TeXAtom-ORD"><mn>1</mn><mo>,</mo><mn>1</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>A</mi><mi>r</mi></mrow></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-15">M_{1,1}^{Ar}</script>, <em>z</em>=1 for PS=β and inputs 00 and 01
+      produce static-0 hazards
+ </li><li> for <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-16-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-136" role="math" style="display: inline-block; width: 2.046em;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.93em, 2.767em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-137" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-138" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-139" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.84em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="texatom" id="MathJax-Span-140" style="display: inline-block;"><span class="mrow" id="MathJax-Span-141" style="display: inline-block;"><span class="mi" id="MathJax-Span-142" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span class="mi" id="MathJax-Span-143" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0072.png" style="width: 5px; height: 5px; margin-right: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.9em, 4.33em, -999.997em); top: -3.723em; left: 0.904em;"><span class="texatom" id="MathJax-Span-144" style="display: inline-block;"><span class="mrow" id="MathJax-Span-145" style="display: inline-block;"><span class="mn" id="MathJax-Span-146" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span class="mo" id="MathJax-Span-147" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C(1).png" style="width: 2px; height: 4px; vertical-align: -2px; margin-right: 0.063em;"></span><span class="mn" id="MathJax-Span-148" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mrow class="MJX-TeXAtom-ORD"><mn>1</mn><mo>,</mo><mn>1</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>A</mi><mi>r</mi></mrow></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-16">M_{1,1}^{Ar}</script>, <em>z</em>=1 for PS=α and input 10
+      produces a static-0 hazard
+ </li><li> similar hazards are also possible for <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-17-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msubsup&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-149" role="math" style="display: inline-block; width: 2.046em;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px; font-size: 104%;"><span style="position: absolute; clip: rect(1.145em, 1001.93em, 2.767em, -999.997em); top: -2.16em; left: 0.003em;"><span class="mrow" id="MathJax-Span-150" style="display: inline-block;"><span class="msubsup" id="MathJax-Span-151" style="display: inline-block;"><span style="display: inline-block; position: relative; width: 1.926em; height: 0px;"><span style="position: absolute; clip: rect(3.188em, 1000.97em, 4.21em, -999.997em); top: -4.023em; left: 0.003em;"><span class="mi" id="MathJax-Span-152" style="display: inline-block;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/004D.png" style="width: 16px; height: 11px; margin-right: -0.057em;"><span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.368em, 1000.84em, 4.21em, -999.997em); top: -4.384em; left: 1.085em;"><span class="texatom" id="MathJax-Span-153" style="display: inline-block;"><span class="mrow" id="MathJax-Span-154" style="display: inline-block;"><span class="mi" id="MathJax-Span-155" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0041.png" style="width: 8px; height: 8px; margin-right: 0.003em;"></span><span class="mi" id="MathJax-Span-156" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0072.png" style="width: 5px; height: 5px; margin-right: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span><span style="position: absolute; clip: rect(3.428em, 1000.9em, 4.33em, -999.997em); top: -3.723em; left: 0.904em;"><span class="texatom" id="MathJax-Span-157" style="display: inline-block;"><span class="mrow" id="MathJax-Span-158" style="display: inline-block;"><span class="mn" id="MathJax-Span-159" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0031.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span><span class="mo" id="MathJax-Span-160" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/002C(1).png" style="width: 2px; height: 4px; vertical-align: -2px; margin-right: 0.063em;"></span><span class="mn" id="MathJax-Span-161" style="display: inline-block; font-size: 70.7%;"><img src="./Synthesis of SIC fundamental-mode asynchronous circuits_files/0032.png" style="width: 5px; height: 8px; margin-right: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.029em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.166em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>M</mi><mrow class="MJX-TeXAtom-ORD"><mn>1</mn><mo>,</mo><mn>2</mn></mrow><mrow class="MJX-TeXAtom-ORD"><mi>A</mi><mi>r</mi></mrow></msubsup></math></span></span><script type="math/tex" id="MathJax-Element-17">M_{1,2}^{Ar}</script>
+ </li></ul>
+</li><li>If desired, while avoiding glitching, the output may be achieve a fast or
+    a slow transition to the output
+</li><li>Thereafter, the problem of state encoding needs to be addressed
+</li></ul>
+
+<h3>State assignment</h3>
+
+<p>Consider the following flow graph</p>
+<svg width="408pt" height="210pt" viewBox="0.00 0.00 408.00 210.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 206)">
+<title>G</title>
+<polygon fill="transparent" stroke="none" points="-4,4 -4,-206 404,-206 404,4 -4,4"></polygon>
+<!-- s0 -->
+<g id="node1" class="node"><title>s0</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-105" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-101.3" font-family="Sans,serif" font-size="14.00">s0</text>
+</g>
+<!-- s0&#45;&gt;s0 -->
+<g id="edge2" class="edge"><title>s0-&gt;s0</title>
+<path fill="none" stroke="black" d="M17.7856,-122.037C15.9051,-131.858 18.9766,-141 27,-141 32.0146,-141 35.0949,-137.429 36.2409,-132.353"></path>
+<polygon fill="black" stroke="black" points="39.7401,-132.028 36.2144,-122.037 32.7402,-132.046 39.7401,-132.028"></polygon>
+<text text-anchor="middle" x="27" y="-144.8" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s3 -->
+<g id="node2" class="node"><title>s3</title>
+<ellipse fill="none" stroke="black" cx="252" cy="-113" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="252" y="-109.3" font-family="Sans,serif" font-size="14.00">s3</text>
+</g>
+<!-- s0&#45;&gt;s3 -->
+<g id="edge1" class="edge"><title>s0-&gt;s3</title>
+<path fill="none" stroke="black" d="M51.5626,-113.229C58.1227,-115.319 65.29,-117.418 72,-119 120.893,-130.527 179.362,-125.116 215.85,-119.554"></path>
+<polygon fill="black" stroke="black" points="216.668,-122.968 225.982,-117.919 215.552,-116.057 216.668,-122.968"></polygon>
+<text text-anchor="middle" x="131" y="-128.8" font-family="Sans,serif" font-size="14.00">00</text>
+</g>
+<!-- s2 -->
+<g id="node3" class="node"><title>s2</title>
+<ellipse fill="none" stroke="black" cx="373" cy="-151" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="373" y="-147.3" font-family="Sans,serif" font-size="14.00">s2</text>
+</g>
+<!-- s0&#45;&gt;s2 -->
+<g id="edge3" class="edge"><title>s0-&gt;s2</title>
+<path fill="none" stroke="black" d="M45.7373,-118.331C53.5044,-123.727 62.9069,-129.688 72,-134 156.589,-174.114 186.012,-183.849 279,-173 298.975,-170.67 320.884,-165.614 338.417,-160.936"></path>
+<polygon fill="black" stroke="black" points="339.473,-164.276 348.187,-158.249 337.616,-157.526 339.473,-164.276"></polygon>
+<text text-anchor="middle" x="191.5" y="-179.8" font-family="Sans,serif" font-size="14.00">11</text>
+</g>
+<!-- s1 -->
+<g id="node4" class="node"><title>s1</title>
+<ellipse fill="none" stroke="black" cx="131" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="131" y="-14.3" font-family="Sans,serif" font-size="14.00">s1</text>
+</g>
+<!-- s0&#45;&gt;s1 -->
+<g id="edge4" class="edge"><title>s0-&gt;s1</title>
+<path fill="none" stroke="black" d="M44.3881,-91.0219C61.0431,-76.8162 87.0226,-54.6572 105.997,-38.473"></path>
+<polygon fill="black" stroke="black" points="108.316,-41.0958 113.653,-31.9434 103.773,-35.7699 108.316,-41.0958"></polygon>
+<text text-anchor="middle" x="79" y="-69.8" font-family="Sans,serif" font-size="14.00">10</text>
+</g>
+<!-- s3&#45;&gt;s0 -->
+<g id="edge9" class="edge"><title>s3-&gt;s0</title>
+<path fill="none" stroke="black" d="M224.982,-110.16C206.355,-108.274 180.667,-105.973 158,-105 126.489,-103.647 90.6423,-103.771 64.5832,-104.163"></path>
+<polygon fill="black" stroke="black" points="64.3451,-100.667 54.4064,-104.337 64.4648,-107.666 64.3451,-100.667"></polygon>
+<text text-anchor="middle" x="131" y="-108.8" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s3&#45;&gt;s3 -->
+<g id="edge8" class="edge"><title>s3-&gt;s3</title>
+<path fill="none" stroke="black" d="M241.453,-129.664C239.109,-139.625 242.625,-149 252,-149 258.006,-149 261.607,-145.152 262.804,-139.768"></path>
+<polygon fill="black" stroke="black" points="266.3,-139.572 262.547,-129.664 259.302,-139.75 266.3,-139.572"></polygon>
+<text text-anchor="middle" x="252" y="-152.8" font-family="Sans,serif" font-size="14.00">00/10</text>
+</g>
+<!-- s3&#45;&gt;s2 -->
+<g id="edge10" class="edge"><title>s3-&gt;s2</title>
+<path fill="none" stroke="black" d="M275.741,-121.581C282.547,-124.065 290.049,-126.719 297,-129 310.327,-133.373 325.12,-137.801 338.021,-141.527"></path>
+<polygon fill="black" stroke="black" points="337.322,-144.968 347.899,-144.351 339.246,-138.237 337.322,-144.968"></polygon>
+<text text-anchor="middle" x="312.5" y="-141.8" font-family="Sans,serif" font-size="14.00">11</text>
+</g>
+<!-- s2&#45;&gt;s3 -->
+<g id="edge11" class="edge"><title>s2-&gt;s3</title>
+<path fill="none" stroke="black" d="M360.057,-135.014C352.122,-125.792 340.824,-115.049 328,-110 315.466,-105.066 300.827,-104.605 287.825,-105.81"></path>
+<polygon fill="black" stroke="black" points="287.3,-102.348 277.821,-107.08 288.182,-109.293 287.3,-102.348"></polygon>
+<text text-anchor="middle" x="312.5" y="-113.8" font-family="Sans,serif" font-size="14.00">00/10</text>
+</g>
+<!-- s2&#45;&gt;s2 -->
+<g id="edge12" class="edge"><title>s2-&gt;s2</title>
+<path fill="none" stroke="black" d="M362.453,-167.664C360.109,-177.625 363.625,-187 373,-187 379.006,-187 382.607,-183.152 383.804,-177.768"></path>
+<polygon fill="black" stroke="black" points="387.3,-177.572 383.547,-167.664 380.302,-177.75 387.3,-177.572"></polygon>
+<text text-anchor="middle" x="373" y="-190.8" font-family="Sans,serif" font-size="14.00">01/11</text>
+</g>
+<!-- s1&#45;&gt;s0 -->
+<g id="edge6" class="edge"><title>s1-&gt;s0</title>
+<path fill="none" stroke="black" d="M104.514,-22.3962C93.677,-25.2143 81.4004,-29.7564 72,-37 57.9727,-47.8088 47.0984,-64.4396 39.6695,-78.5483"></path>
+<polygon fill="black" stroke="black" points="36.3839,-77.296 35.0805,-87.8104 42.6563,-80.4038 36.3839,-77.296"></polygon>
+<text text-anchor="middle" x="79" y="-40.8" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s1&#45;&gt;s3 -->
+<g id="edge5" class="edge"><title>s1-&gt;s3</title>
+<path fill="none" stroke="black" d="M149.435,-31.1624C164.737,-42.7905 187.526,-60.2927 207,-76 213.446,-81.1988 220.335,-86.9142 226.703,-92.2653"></path>
+<polygon fill="black" stroke="black" points="224.521,-95.0032 234.419,-98.7821 229.038,-89.6555 224.521,-95.0032"></polygon>
+<text text-anchor="middle" x="191.5" y="-79.8" font-family="Sans,serif" font-size="14.00">00/11</text>
+</g>
+<!-- s1&#45;&gt;s1 -->
+<g id="edge7" class="edge"><title>s1-&gt;s1</title>
+<path fill="none" stroke="black" d="M121.786,-35.0373C119.905,-44.8579 122.977,-54 131,-54 136.015,-54 139.095,-50.4289 140.241,-45.3529"></path>
+<polygon fill="black" stroke="black" points="143.74,-45.0283 140.214,-35.0373 136.74,-45.0463 143.74,-45.0283"></polygon>
+<text text-anchor="middle" x="131" y="-57.8" font-family="Sans,serif" font-size="14.00">10</text>
+</g>
+</g>
+</svg>
+
+<p>
+For this flow table the behaviour of the states is as follows:
+</p><dl><dt>s0:
+</dt><dd>It's stable for 01 input, all incoming transitions are on 01
+</dd><dt>s1:
+</dt><dd>It's stable for 10 input, only incoming transition is on 10
+</dd><dt>s2:
+</dt><dd>It's stable for 01 and 11 input, only incoming transition is on 11
+</dd><dt>s3:
+</dt><dd>It's stable for 00 and 10 input, incoming transitions are on 00, 10 and 11
+</dd><dd>It's unstable for 11 input, for which it has an outgoing transition to s2
+</dd></dl>
+To realise this m/c, it is necessary to assign Boolean values to the states (called state encoding)
+and the behaviour of the m/c with that state assignment needs to be analysed
+
+<h4>State assignment: s0↦00, s1↦01, s2↦11 and s3↦10;</h4>
+
+<svg width="482pt" height="270pt" viewBox="0.00 0.00 481.87 270.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 266.27)">
+<title>G</title>
+<polygon fill="transparent" stroke="none" points="-4,4 -4,-266.27 477.874,-266.27 477.874,4 -4,4"></polygon>
+<!-- s0 -->
+<g id="node1" class="node"><title>s0</title>
+<ellipse fill="none" stroke="black" cx="36.3968" cy="-114.27" rx="36.2938" ry="18"></ellipse>
+<text text-anchor="middle" x="36.3968" y="-110.57" font-family="Sans,serif" font-size="14.00">s0 (00)</text>
+</g>
+<!-- s0&#45;&gt;s0 -->
+<g id="edge2" class="edge"><title>s0-&gt;s0</title>
+<path fill="none" stroke="black" d="M25.6851,-131.68C23.6856,-141.358 27.2561,-150.27 36.3968,-150.27 42.1097,-150.27 45.6467,-146.789 47.008,-141.815"></path>
+<polygon fill="black" stroke="black" points="50.5091,-141.714 47.1084,-131.68 43.5094,-141.645 50.5091,-141.714"></polygon>
+<text text-anchor="middle" x="36.3968" y="-154.07" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s1 -->
+<g id="node2" class="node"><title>s1</title>
+<ellipse fill="none" stroke="black" cx="159.19" cy="-141.27" rx="36.2938" ry="18"></ellipse>
+<text text-anchor="middle" x="159.19" y="-137.57" font-family="Sans,serif" font-size="14.00">s1 (01)</text>
+</g>
+<!-- s0&#45;&gt;s1 -->
+<g id="edge4" class="edge"><title>s0-&gt;s1</title>
+<path fill="none" stroke="black" d="M41.98,-132.366C48.625,-154.338 63.2669,-190.419 90.7935,-206.27 113.08,-219.103 133.56,-191.252 145.955,-168.099"></path>
+<polygon fill="black" stroke="black" points="149.21,-169.419 150.602,-158.916 142.964,-166.258 149.21,-169.419"></polygon>
+<text text-anchor="middle" x="97.7935" y="-213.07" font-family="Sans,serif" font-size="14.00">10</text>
+</g>
+<!-- s0&#45;&gt;s1 -->
+<g id="edge5" class="edge"><title>s0-&gt;s1</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M48.6616,-131.505C58.1606,-144.333 73.0303,-160.854 90.7935,-168.27 104.085,-173.819 118.938,-169.036 131.311,-162.038"></path>
+<polygon fill="blue" stroke="blue" points="133.235,-164.962 139.825,-156.667 129.5,-159.042 133.235,-164.962"></polygon>
+<text text-anchor="start" x="91.2935" y="-174.07" font-family="Sans,serif" font-size="14.00" fill="blue">11</text>
+</g>
+<!-- s2 -->
+<g id="node3" class="node"><title>s2</title>
+<ellipse fill="none" stroke="black" cx="438.127" cy="-136.27" rx="35.9954" ry="18"></ellipse>
+<text text-anchor="middle" x="438.127" y="-132.57" font-family="Sans,serif" font-size="14.00">s2 (11)</text>
+</g>
+<!-- s0&#45;&gt;s2 -->
+<g id="edge3" class="edge"><title>s0-&gt;s2</title>
+<path fill="none" stroke="black" d="M39.8653,-132.426C44.5417,-158.845 57.4126,-207.044 90.7935,-228.27 195.622,-294.927 347.627,-201.627 409.436,-157.348"></path>
+<polygon fill="black" stroke="black" points="411.861,-159.912 417.885,-151.196 407.741,-154.253 411.861,-159.912"></polygon>
+<text text-anchor="middle" x="229.087" y="-251.07" font-family="Sans,serif" font-size="14.00">11</text>
+</g>
+<!-- s3 -->
+<g id="node4" class="node"><title>s3</title>
+<ellipse fill="none" stroke="black" cx="298.984" cy="-49.2701" rx="36.2938" ry="18"></ellipse>
+<text text-anchor="middle" x="298.984" y="-45.5701" font-family="Sans,serif" font-size="14.00">s3 (10)</text>
+</g>
+<!-- s0&#45;&gt;s3 -->
+<g id="edge1" class="edge"><title>s0-&gt;s3</title>
+<path fill="none" stroke="black" d="M57.7709,-99.5436C67.3603,-93.2887 79.2154,-86.4823 90.7935,-82.2701 144.234,-62.828 209.554,-54.8261 252.387,-51.5417"></path>
+<polygon fill="black" stroke="black" points="252.777,-55.0229 262.504,-50.8218 252.28,-48.0405 252.777,-55.0229"></polygon>
+<text text-anchor="middle" x="159.19" y="-75.0701" font-family="Sans,serif" font-size="14.00">00</text>
+</g>
+<!-- s0&#45;&gt;s3 -->
+<g id="edge6" class="edge"><title>s0-&gt;s3</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M49.9524,-97.3742C64.9139,-78.8085 91.8164,-50.0582 122.794,-38.2701 166.792,-21.5268 221.481,-28.9955 257.939,-37.5525"></path>
+<polygon fill="blue" stroke="blue" points="257.166,-40.9667 267.714,-39.9757 258.85,-34.1724 257.166,-40.9667"></polygon>
+<text text-anchor="start" x="152.69" y="-42.0701" font-family="Sans,serif" font-size="14.00" fill="blue">11</text>
+</g>
+<!-- s1&#45;&gt;s0 -->
+<g id="edge8" class="edge"><title>s1-&gt;s0</title>
+<path fill="none" stroke="black" d="M123.736,-136.526C113.116,-134.829 101.422,-132.719 90.7935,-130.27 86.3229,-129.24 81.677,-128.043 77.074,-126.776"></path>
+<polygon fill="black" stroke="black" points="77.7279,-123.322 67.1504,-123.928 75.7968,-130.05 77.7279,-123.322"></polygon>
+<text text-anchor="middle" x="97.7935" y="-136.07" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s1&#45;&gt;s0 -->
+<g id="edge10" class="edge"><title>s1-&gt;s0</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M137.954,-126.652C128.392,-120.624 116.521,-114.339 104.794,-111.27 97.3877,-109.332 89.3704,-108.579 81.5364,-108.533"></path>
+<polygon fill="blue" stroke="blue" points="81.3003,-105.038 71.4104,-108.838 81.5114,-112.035 81.3003,-105.038"></polygon>
+<text text-anchor="start" x="90.7935" y="-115.07" font-family="Sans,serif" font-size="14.00" fill="blue">00</text>
+</g>
+<!-- s1&#45;&gt;s0 -->
+<g id="edge13" class="edge"><title>s1-&gt;s0</title>
+<path fill="none" stroke="violet" stroke-dasharray="5,2" d="M146.384,-124.149C136.793,-111.863 122.055,-96.2866 104.794,-89.2701 91.9876,-84.0649 77.646,-88.0443 65.495,-94.2348"></path>
+<polygon fill="violet" stroke="violet" points="63.6247,-91.2727 56.6918,-99.2843 67.1076,-97.3447 63.6247,-91.2727"></polygon>
+<text text-anchor="start" x="91.2935" y="-93.0701" font-family="Sans,serif" font-size="14.00" fill="violet">11</text>
+</g>
+<!-- s1&#45;&gt;s1 -->
+<g id="edge9" class="edge"><title>s1-&gt;s1</title>
+<path fill="none" stroke="black" d="M148.479,-158.68C146.479,-168.358 150.05,-177.27 159.19,-177.27 164.903,-177.27 168.44,-173.789 169.802,-168.815"></path>
+<polygon fill="black" stroke="black" points="173.303,-168.714 169.902,-158.68 166.303,-168.645 173.303,-168.714"></polygon>
+<text text-anchor="middle" x="159.19" y="-181.07" font-family="Sans,serif" font-size="14.00">10</text>
+</g>
+<!-- s1&#45;&gt;s2 -->
+<g id="edge11" class="edge"><title>s1-&gt;s2</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M193.751,-147.27C200.317,-148.347 207.159,-149.401 213.587,-150.27 288.811,-160.437 309.706,-163.902 384.381,-150.27 388.522,-149.514 392.816,-148.599 397.083,-147.602"></path>
+<polygon fill="blue" stroke="blue" points="398.046,-150.969 406.909,-145.166 396.361,-144.175 398.046,-150.969"></polygon>
+<text text-anchor="start" x="291.984" y="-162.07" font-family="Sans,serif" font-size="14.00" fill="blue">00</text>
+</g>
+<!-- s1&#45;&gt;s2 -->
+<g id="edge12" class="edge"><title>s1-&gt;s2</title>
+<path fill="none" stroke="violet" stroke-dasharray="5,2" d="M195.723,-139.591C215.42,-138.733 240.354,-137.768 262.587,-137.27 306.515,-136.287 356.676,-136.096 391.917,-136.116"></path>
+<polygon fill="violet" stroke="violet" points="392.347,-139.617 402.351,-136.129 392.355,-132.617 392.347,-139.617"></polygon>
+<text text-anchor="start" x="292.484" y="-141.07" font-family="Sans,serif" font-size="14.00" fill="violet">11</text>
+</g>
+<!-- s1&#45;&gt;s3 -->
+<g id="edge7" class="edge"><title>s1-&gt;s3</title>
+<path fill="none" stroke="black" d="M181.721,-126.895C204.978,-111.367 242.193,-86.5195 268.237,-69.131"></path>
+<polygon fill="black" stroke="black" points="270.232,-72.0078 276.605,-63.5442 266.345,-66.1861 270.232,-72.0078"></polygon>
+<text text-anchor="middle" x="229.087" y="-107.07" font-family="Sans,serif" font-size="14.00">00,11</text>
+</g>
+<!-- s2&#45;&gt;s2 -->
+<g id="edge18" class="edge"><title>s2-&gt;s2</title>
+<path fill="none" stroke="black" d="M426.078,-153.307C423.619,-163.128 427.635,-172.27 438.127,-172.27 444.685,-172.27 448.713,-168.699 450.212,-163.623"></path>
+<polygon fill="black" stroke="black" points="453.711,-163.296 450.177,-153.307 446.711,-163.319 453.711,-163.296"></polygon>
+<text text-anchor="middle" x="438.127" y="-176.07" font-family="Sans,serif" font-size="14.00">01,11</text>
+</g>
+<!-- s2&#45;&gt;s3 -->
+<g id="edge17" class="edge"><title>s2-&gt;s3</title>
+<path fill="none" stroke="black" d="M428.896,-118.684C420.215,-102.176 404.942,-78.1496 384.381,-65.2701 372.799,-58.0153 358.694,-53.9042 345.357,-51.6157"></path>
+<polygon fill="black" stroke="black" points="345.754,-48.1371 335.362,-50.1992 344.771,-55.0679 345.754,-48.1371"></polygon>
+<text text-anchor="middle" x="368.881" y="-69.0701" font-family="Sans,serif" font-size="14.00">00,10</text>
+</g>
+<!-- s3&#45;&gt;s0 -->
+<g id="edge15" class="edge"><title>s3-&gt;s0</title>
+<path fill="none" stroke="black" d="M275.572,-35.2264C241.417,-15.739 174.817,14.6554 122.794,-8.27012 87.9329,-23.6323 63.1141,-61.6787 49.5134,-87.7493"></path>
+<polygon fill="black" stroke="black" points="46.3555,-86.2389 45.0124,-96.7483 52.6161,-89.3703 46.3555,-86.2389"></polygon>
+<text text-anchor="middle" x="159.19" y="-12.0701" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s3&#45;&gt;s2 -->
+<g id="edge16" class="edge"><title>s3-&gt;s2</title>
+<path fill="none" stroke="black" d="M322.018,-63.2482C344.912,-77.771 380.908,-100.606 406.549,-116.872"></path>
+<polygon fill="black" stroke="black" points="404.829,-119.925 415.148,-122.327 408.578,-114.014 404.829,-119.925"></polygon>
+<text text-anchor="middle" x="368.881" y="-106.07" font-family="Sans,serif" font-size="14.00">11</text>
+</g>
+<!-- s3&#45;&gt;s3 -->
+<g id="edge14" class="edge"><title>s3-&gt;s3</title>
+<path fill="none" stroke="black" d="M286.934,-66.3074C284.475,-76.128 288.492,-85.2701 298.984,-85.2701 305.541,-85.2701 309.57,-81.699 311.068,-76.623"></path>
+<polygon fill="black" stroke="black" points="314.567,-76.2956 311.033,-66.3074 307.567,-76.3191 314.567,-76.2956"></polygon>
+<text text-anchor="middle" x="298.984" y="-89.0701" font-family="Sans,serif" font-size="14.00">00,10</text>
+</g>
+</g>
+</svg>
+<dl><dt>s2 (encoded as 11):
+</dt><dd>On getting 00 or 10, makes transition to s3 (10) with only one bit change, so no problem
+</dd><dt>s3 (encoded as 10):
+</dt><dd>On getting 11, makes transition to s2 (11) with only one bit change, so no problem
+</dd><dd>On getting 01, makes transition to s0 (00) with only one bit change, so no problem
+</dd><dt>s0 (encoded as 00):
+</dt><dd>On getting 00, makes transition to s3 (10) with only one bit change, so no problem
+</dd><dt>s1 (encoded as 01):
+</dt><dd>On getting 00, makes transition to s3 (10) with two bit changes, so further investigation is needed
+<ul>
+<li style="color:blue">if 01→00, then transition is to s0, thereafter, no problem as on 00 state changes to s3 (10) with only one bit change
+</li><li style="color:blue">if 01→11, then transition is to s2, thereafter, no problem as on 00 state changes to s3 (10) with only one bit change
+</li></ul>
+</dd><dd>On getting 11, makes transition to s3 (10) with two bit changes, so further investigation is needed
+<ul>
+<li style="color:violet">if 01→11, then transition is to s2, which is stable for 11, so will not move to s3
+</li><li style="list-style:none;color:violet">however, s3 is only an unstable state of 11 and has a transition of s2, so no problem
+</li><li style="color:violet">if 01→00, then transition is to s0, which on 11 has transition to s2 (11) but with two bit changes, so more investigation is needed
+</li></ul>
+</dd><dt>s0 (encoded as 00):
+</dt><dd>On getting 11, makes transition to s2 (11) with two bit changes, so further investigation is needed
+<ul>
+<li style="color:blue">if 00→10, then transition is to s3
+</li><li style="list-style:none;">however, s3 is only an unstable state of 11 and has a transition of s2, so no problem
+</li><li style="color:blue">if 00→01, there may be a transition back to s0 (00),
+    <span style="color:red">creating a cycle for oscillation</span>
+</li></ul>
+</dd></dl>
+<ul>
+<li>This state assignment is, therefore, problematic
+</li><li>A difference state assignment may be attempted
+</li><li>It is, nevertheless useful to note the transition from s0 to s2 on 11 may be modified to s2 (10), instead
+</li><li>This change would solve the problem
+</li><li>On similar lines, the transitions from s1 (01) to s3 (10) on 00 and 11 could be modified to s2
+</li><li>However, for this state assignment that doesn't create a problem for those transitions
+</li><li>What is evident is that <em>if there is a transtion from  one state to another,
+    it's better if their codes are adjacent</em>
+</li></ul>
+
+<p>The modified flow graph is shown below</p>
+
+<svg width="482pt" height="206pt" viewBox="0.00 0.00 481.87 205.58" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 201.582)">
+<title>G</title>
+<polygon fill="transparent" stroke="none" points="-4,4 -4,-201.582 477.874,-201.582 477.874,4 -4,4"></polygon>
+<!-- s0 -->
+<g id="node1" class="node"><title>s0</title>
+<ellipse fill="none" stroke="black" cx="36.3968" cy="-87.5825" rx="36.2938" ry="18"></ellipse>
+<text text-anchor="middle" x="36.3968" y="-83.8825" font-family="Sans,serif" font-size="14.00">s0 (00)</text>
+</g>
+<!-- s0&#45;&gt;s0 -->
+<g id="edge2" class="edge"><title>s0-&gt;s0</title>
+<path fill="none" stroke="black" d="M25.6851,-104.992C23.6856,-114.67 27.2561,-123.582 36.3968,-123.582 42.1097,-123.582 45.6467,-120.101 47.008,-115.127"></path>
+<polygon fill="black" stroke="black" points="50.5091,-115.027 47.1084,-104.992 43.5094,-114.957 50.5091,-115.027"></polygon>
+<text text-anchor="middle" x="36.3968" y="-127.382" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s1 -->
+<g id="node2" class="node"><title>s1</title>
+<ellipse fill="none" stroke="black" cx="159.19" cy="-125.582" rx="36.2938" ry="18"></ellipse>
+<text text-anchor="middle" x="159.19" y="-121.882" font-family="Sans,serif" font-size="14.00">s1 (01)</text>
+</g>
+<!-- s0&#45;&gt;s1 -->
+<g id="edge4" class="edge"><title>s0-&gt;s1</title>
+<path fill="none" stroke="black" d="M41.98,-105.678C48.625,-127.65 63.2669,-163.732 90.7935,-179.582 110.286,-190.807 130.079,-170.33 143.125,-151.454"></path>
+<polygon fill="black" stroke="black" points="146.097,-153.303 148.619,-143.013 140.23,-149.484 146.097,-153.303"></polygon>
+<text text-anchor="middle" x="97.7935" y="-186.382" font-family="Sans,serif" font-size="14.00">10</text>
+</g>
+<!-- s3 -->
+<g id="node4" class="node"><title>s3</title>
+<ellipse fill="none" stroke="black" cx="298.984" cy="-36.5825" rx="36.2938" ry="18"></ellipse>
+<text text-anchor="middle" x="298.984" y="-32.8825" font-family="Sans,serif" font-size="14.00">s3 (10)</text>
+</g>
+<!-- s0&#45;&gt;s3 -->
+<g id="edge1" class="edge"><title>s0-&gt;s3</title>
+<path fill="none" stroke="black" d="M70.4003,-81.1233C117.264,-71.9515 203.142,-55.1442 254.952,-45.0044"></path>
+<polygon fill="black" stroke="black" points="255.696,-48.4251 264.838,-43.0695 254.352,-41.5555 255.696,-48.4251"></polygon>
+<text text-anchor="middle" x="159.19" y="-73.3825" font-family="Sans,serif" font-size="14.00">00</text>
+</g>
+<!-- s0&#45;&gt;s3 -->
+<g id="edge3" class="edge"><title>s0-&gt;s3</title>
+<path fill="none" stroke="black" d="M56.4127,-72.4704C72.8941,-60.3936 97.9412,-44.399 122.794,-37.5825 166.042,-25.72 217.588,-27.1904 253.526,-30.5704"></path>
+<polygon fill="black" stroke="black" points="253.383,-34.0741 263.689,-31.6162 254.1,-27.1109 253.383,-34.0741"></polygon>
+<text text-anchor="middle" x="159.19" y="-41.3825" font-family="Sans,serif" font-size="14.00">11</text>
+</g>
+<!-- s1&#45;&gt;s0 -->
+<g id="edge6" class="edge"><title>s1-&gt;s0</title>
+<path fill="none" stroke="black" d="M133.889,-138.54C120.797,-143.753 104.555,-147.328 90.7935,-141.582 76.6385,-135.673 64.3208,-123.981 55.0941,-112.984"></path>
+<polygon fill="black" stroke="black" points="57.5987,-110.507 48.6616,-104.817 52.0995,-114.838 57.5987,-110.507"></polygon>
+<text text-anchor="middle" x="97.7935" y="-147.382" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s1&#45;&gt;s0 -->
+<g id="edge8" class="edge"><title>s1-&gt;s0</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M127.987,-116.081C112.704,-111.273 93.9492,-105.373 77.4766,-100.191"></path>
+<polygon fill="blue" stroke="blue" points="78.1559,-96.7357 67.5665,-97.0734 76.0553,-103.413 78.1559,-96.7357"></polygon>
+<text text-anchor="start" x="90.7935" y="-111.382" font-family="Sans,serif" font-size="14.00" fill="blue">00</text>
+</g>
+<!-- s1&#45;&gt;s0 -->
+<g id="edge11" class="edge"><title>s1-&gt;s0</title>
+<path fill="none" stroke="violet" stroke-dasharray="5,2" d="M142.5,-109.509C132.626,-100.581 119.08,-90.3401 104.794,-85.5825 97.4573,-83.1394 89.4198,-82.0902 81.5314,-81.8783"></path>
+<polygon fill="violet" stroke="violet" points="81.2638,-78.3819 71.3187,-82.0351 81.3713,-85.381 81.2638,-78.3819"></polygon>
+<text text-anchor="start" x="91.2935" y="-89.3825" font-family="Sans,serif" font-size="14.00" fill="violet">11</text>
+</g>
+<!-- s1&#45;&gt;s1 -->
+<g id="edge7" class="edge"><title>s1-&gt;s1</title>
+<path fill="none" stroke="black" d="M148.479,-142.992C146.479,-152.67 150.05,-161.582 159.19,-161.582 164.903,-161.582 168.44,-158.101 169.802,-153.127"></path>
+<polygon fill="black" stroke="black" points="173.303,-153.027 169.902,-142.992 166.303,-152.957 173.303,-153.027"></polygon>
+<text text-anchor="middle" x="159.19" y="-165.382" font-family="Sans,serif" font-size="14.00">10</text>
+</g>
+<!-- s2 -->
+<g id="node3" class="node"><title>s2</title>
+<ellipse fill="none" stroke="black" cx="438.127" cy="-105.582" rx="35.9954" ry="18"></ellipse>
+<text text-anchor="middle" x="438.127" y="-101.882" font-family="Sans,serif" font-size="14.00">s2 (11)</text>
+</g>
+<!-- s1&#45;&gt;s2 -->
+<g id="edge9" class="edge"><title>s1-&gt;s2</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M191.253,-134.297C235.443,-145.139 318.414,-159.699 384.381,-137.582 392.702,-134.793 401.1,-130.51 408.673,-125.977"></path>
+<polygon fill="blue" stroke="blue" points="410.559,-128.925 417.13,-120.614 406.811,-123.014 410.559,-128.925"></polygon>
+<text text-anchor="start" x="291.984" y="-152.382" font-family="Sans,serif" font-size="14.00" fill="blue">00</text>
+</g>
+<!-- s1&#45;&gt;s2 -->
+<g id="edge10" class="edge"><title>s1-&gt;s2</title>
+<path fill="none" stroke="violet" stroke-dasharray="5,2" d="M195.265,-123.049C245.309,-119.435 337.217,-112.798 392.19,-108.828"></path>
+<polygon fill="violet" stroke="violet" points="392.616,-112.306 402.338,-108.095 392.112,-105.324 392.616,-112.306"></polygon>
+<text text-anchor="start" x="292.484" y="-121.382" font-family="Sans,serif" font-size="14.00" fill="violet">11</text>
+</g>
+<!-- s1&#45;&gt;s3 -->
+<g id="edge5" class="edge"><title>s1-&gt;s3</title>
+<path fill="none" stroke="black" d="M182.024,-111.48C204.969,-96.6604 241.252,-73.2249 267.12,-56.5174"></path>
+<polygon fill="black" stroke="black" points="269.295,-59.2792 275.796,-50.9135 265.497,-53.3991 269.295,-59.2792"></polygon>
+<text text-anchor="middle" x="229.087" y="-92.3825" font-family="Sans,serif" font-size="14.00">00,11</text>
+</g>
+<!-- s2&#45;&gt;s2 -->
+<g id="edge16" class="edge"><title>s2-&gt;s2</title>
+<path fill="none" stroke="black" d="M426.078,-122.62C423.619,-132.44 427.635,-141.582 438.127,-141.582 444.685,-141.582 448.713,-138.011 450.212,-132.935"></path>
+<polygon fill="black" stroke="black" points="453.711,-132.608 450.177,-122.62 446.711,-132.631 453.711,-132.608"></polygon>
+<text text-anchor="middle" x="438.127" y="-145.382" font-family="Sans,serif" font-size="14.00">01,11</text>
+</g>
+<!-- s2&#45;&gt;s3 -->
+<g id="edge15" class="edge"><title>s2-&gt;s3</title>
+<path fill="none" stroke="black" d="M427.171,-88.4429C417.987,-74.3593 402.977,-55.2152 384.381,-45.5825 372.611,-39.4859 358.692,-36.5625 345.588,-35.3351"></path>
+<polygon fill="black" stroke="black" points="345.511,-31.8233 335.31,-34.6861 345.069,-38.8094 345.511,-31.8233"></polygon>
+<text text-anchor="middle" x="368.881" y="-49.3825" font-family="Sans,serif" font-size="14.00">00,10</text>
+</g>
+<!-- s3&#45;&gt;s0 -->
+<g id="edge13" class="edge"><title>s3-&gt;s0</title>
+<path fill="none" stroke="black" d="M272.14,-24.2971C237.147,-9.46219 173.271,11.185 122.794,-8.58246 95.108,-19.4244 71.024,-43.9215 55.5548,-62.7834"></path>
+<polygon fill="black" stroke="black" points="52.7314,-60.7111 49.2695,-70.7243 58.2202,-65.0555 52.7314,-60.7111"></polygon>
+<text text-anchor="middle" x="159.19" y="-12.3825" font-family="Sans,serif" font-size="14.00">01</text>
+</g>
+<!-- s3&#45;&gt;s2 -->
+<g id="edge14" class="edge"><title>s3-&gt;s2</title>
+<path fill="none" stroke="black" d="M325.138,-49.2381C346.983,-60.229 378.816,-76.2445 402.964,-88.3939"></path>
+<polygon fill="black" stroke="black" points="401.627,-91.6391 412.133,-93.007 404.773,-85.386 401.627,-91.6391"></polygon>
+<text text-anchor="middle" x="368.881" y="-82.3825" font-family="Sans,serif" font-size="14.00">11</text>
+</g>
+<!-- s3&#45;&gt;s3 -->
+<g id="edge12" class="edge"><title>s3-&gt;s3</title>
+<path fill="none" stroke="black" d="M286.934,-53.6198C284.475,-63.4404 288.492,-72.5825 298.984,-72.5825 305.541,-72.5825 309.57,-69.0113 311.068,-63.9354"></path>
+<polygon fill="black" stroke="black" points="314.567,-63.6079 311.033,-53.6198 307.567,-63.6315 314.567,-63.6079"></polygon>
+<text text-anchor="middle" x="298.984" y="-76.3825" font-family="Sans,serif" font-size="14.00">00,10</text>
+</g>
+</g>
+</svg>
+
+<h3>Races and cycles</h3>
+<dl><dt>Race:
+</dt><dd>When a transition <em>A</em>→<em>B</em> involves multiple bit changes,
+the actual transition may occur <em>A</em>→<em>A'</em>→<em>A''</em>→...
+</dd><dd>Since multiple bit changes are involved multiple such sequences are possible
+</dd><dd>Such a situation is called a race
+</dd><dt>Noncritical race:
+</dt><dd>When all race paths are finite and terminate in the same desirable state (<em>B</em>
+         for <em>A</em>→<em>B</em>, via intermediate states), the race is noncritical
+</dd><dt>Critical race:
+</dt><dd>When all race paths are finite by terminate in distinct states
+</dd><dt>Cycle:
+</dt><dd>Unique transition sequence
+         <em>A</em>→<em>A'</em>→<em>A''</em>→...→
+         through intermediate unstable states
+</dd><dt>Undesirable cycle:
+</dt><dd>Cycle <em>A</em>→<em>A'</em>→<em>A''</em>→...→
+         that doesn't terminate on <em>B</em>, for the transition <em>A</em>→<em>B</em>
+</dd><dt>Valid state assignment:
+</dt><dd>A state encoding that does not lead to critical races or undesirable cycles
+</dd></dl>
+
+<h3>Exercises</h3>
+<ul>
+<li>For the above m/c, construct the next state and ouput functions
+</li><li>Using the methods for hazard free circuit design, realise hazard free circuits for these
+</li></ul>
+
+</blockquote>
+<!-- http://www.cs.utah.edu/~hans/publications/async01_xbmsi.pdf -->
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Math-italic, monospace;"></div></div></body></html>

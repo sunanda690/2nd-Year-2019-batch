@@ -1,0 +1,286 @@
+
+<!-- saved from url=(0074)http://cse.iitkgp.ac.in/~wbcm/wbcm/notices/public/cs210022021s/FFs/ff.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <title>
+Latches and flip flops
+</title><style type="text/css">
+body { margin:0; padding:0; counter-reset: mycount; }
+p {text-align:justify}
+li {text-align:justify}
+blockquote {text-align:justify}
+#noul {text-decoration:none}
+#noul:hover {text-decoration:underline}
+table {border:solid thin}
+td {border:solid thin}
+th {border:solid thin}
+#nobd {border:none}
+
+.mycount:before{ counter-increment: mycount; content: " (" counter(mycount, lower-alpha) ") "; }
+
+#inline-list {
+ //border: 1px solid #000;
+ //margin: 2em;
+ //width: 80%;
+ //padding: 5px;
+ //font-family: Verdana, sans-serif;
+ }#inline-list ul, #inline-list ol, #inline-list li {
+ display: inline;
+ margin: 0;
+ padding: 0;
+ color: #339;
+ font-weight: bold;
+ }
+</style>
+<script> 
+function refreshPeriodic() { 
+   // Reload the page every 120 seconds 
+   location.reload(); 
+   timerID = setTimeout("refreshPeriodic()",120000); 
+} 
+timerID = setTimeout("refreshPeriodic()",120000); 
+</script>
+</head>
+<body bgcolor="#e0ffff" data-new-gr-c-s-check-loaded="14.1005.0" data-gr-ext-installed="">
+<table cellpadding="10" cellspacing="0" border="0" width="100%" id="nobd">
+<tbody><tr><td bgcolor="#666677" id="nobd"><h2 align="center"><font color="#ddddff">
+  Latches and flip flops
+</font></h2></td></tr></tbody></table>
+
+<blockquote>
+
+<h3>Set-reset (SR) latch</h3><hr>
+
+<h4>SR latch using NAND gates</h4>
+<center>
+ <img src="./Latches and flip flops_files/nandlatch.png" alt="NAND SR latch" width="500">
+</center><hr>
+
+<h4>SR latch using NOR gates</h4>
+<center>
+ <img src="./Latches and flip flops_files/norlatch.png" alt="NAND SR latch" width="500">
+</center><hr>
+
+<h4>Clocked SR latch (using NAND gates)</h4>
+<center>
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center"><tbody><tr><td id="nobd">
+ <img src="./Latches and flip flops_files/clocksr.png" alt="Clocked SR latch" width="450"></td><td id="nobd">
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center">
+<tbody><tr><td id="nobd" colspan="4" align="center">Truth table
+</td></tr><tr><td>Clk</td><td>S</td><td>R</td><td>Q
+</td></tr><tr><td rowspan="4" align="center">1</td><td>0</td><td>0</td><td>No change
+</td></tr><tr><td>0</td><td>1</td><td>0
+</td></tr><tr><td>1</td><td>0</td><td>1
+</td></tr><tr><td>1</td><td>1</td><td>Invalid
+</td></tr><tr><td align="center">0</td><td colspan="3" align="center">No change
+</td></tr></tbody></table></td></tr></tbody></table></center><hr>
+
+<h4>Chatterless switch</h4>
+<center>
+ <img src="./Latches and flip flops_files/clessw.png" alt="Chatterless switch" width="500">
+</center><hr>
+
+<h3>JK flip flop</h3><hr>
+
+<h4>Basic JK FF</h4>
+
+<center>
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center"><tbody><tr><td id="nobd">
+ <img src="./Latches and flip flops_files/jkff.png" alt="(Jack Kilby) JK flip flop" width="500"></td><td id="nobd">
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center">
+<tbody><tr><td id="nobd" colspan="5" align="center">Truth table
+</td></tr><tr><td>Clk</td><td>J</td><td>K</td><td>Q</td><td>Q New
+</td></tr><tr><td rowspan="7" align="center">1</td><td>0</td><td>0</td><td>—</td><td>No change
+</td></tr><tr><td>0</td><td>1</td><td>0</td><td>0 (NC)
+</td></tr><tr><td>0</td><td>1</td><td>1</td><td>0 (Q'→1)
+</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1 (Q→1)
+</td></tr><tr><td>1</td><td>0</td><td>1</td><td>1 (NC)
+</td></tr><tr><td>1</td><td>1</td><td>1</td><td bgcolor="lightpink">0 (Q'→1)
+</td></tr><tr><td>1</td><td>1</td><td>0</td><td bgcolor="lightpink">1 (Q→1)
+</td></tr><tr><td align="center">0</td><td colspan="4" align="center">No change
+</td></tr></tbody></table>
+</td></tr></tbody></table></center><hr>
+
+<h4>Master-slave JK FF</h4>
+<center>
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center"><tbody><tr><td id="nobd">
+ <img src="./Latches and flip flops_files/jkmsff.png" alt="(Jack Kilby) JK flip flop" width="500"></td><td id="nobd" rowspan="2">
+<table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center">
+<tbody><tr><td id="nobd" colspan="5" align="center">Truth table
+</td></tr><tr><td>Clk</td><td>J</td><td>K</td><td>Q</td><td>Q New
+</td></tr><tr><td align="center">0</td><td colspan="4" align="center">Master: NC; MLat → SLat
+</td></tr><tr><td align="center">1</td><td colspan="4" align="center">Slave: NC
+</td></tr><tr><td rowspan="5" align="center">1 → 0</td><td>0</td><td>0</td><td>—</td><td>MLat → SLat
+</td></tr><tr><td>0</td><td>1</td><td>—</td><td>0 (S=0, R=1)
+</td></tr><tr><td>1</td><td>0</td><td>—</td><td>1 (S=1, R=0)
+</td></tr><tr><td>1</td><td>1</td><td>1</td><td> 0 (S=0, R=1)
+</td></tr><tr><td>1</td><td>1</td><td>0</td><td> 1 (S=1, R=0)
+</td></tr></tbody></table></td></tr><tr><td id="nobd" align="center">Active clock edge: 1 → 0 (falling)</td></tr></tbody></table></center><hr>
+
+<h4>D FF with asynchronous preset and clear</h4>
+<center>
+ <img src="./Latches and flip flops_files/jkmsDFFprA.png" alt="JK MS FF with async present and clear" width="500">
+</center><hr>
+
+<h4>D FF with synchronous preset and clear</h4>
+<center>
+ <img src="./Latches and flip flops_files/jkmsDFFprS.png" alt="JK MS FF with sync present and clear" width="500">
+</center><hr>
+
+<h4>Residual problem with above DFF
+<ol>
+<li>Let the gate delay be <em>Δ</em>
+</li><li>Let <em>D</em>=0, <em>Clk</em>=1
+</li><li>Let <em>D</em>=1 and just before <em>Δ</em> time,  <em>Clk</em>=0
+</li><li>Master latch has the invalid input combination of 00
+</li><li>Before valid inputs could appear at the steering gates of the master latch, <em>Clk</em>=0
+</li><li>Now, invalid input combination of 11 is presented to the slave steering gates,
+    with <em>Clock'</em>=1
+</li><li>Slave latch has the invalid input combination of 00
+</li><li>Output of DFF is indeterminate
+</li></ol>
+Problem may be avoided if <em>D</em> remains steady when <em>Clk</em>=1, allowed to change
+only when <em>Clk</em>=0
+<hr>
+
+
+</h4><h4>T FF with preset and clear</h4>
+<p>Similar to DFF, but J and K terminals tied (J=K=1)
+</p><center>
+ <img src="./Latches and flip flops_files/jkmsTFFprS.png" alt="JK MS TFF with sync present and clear" width="500">
+</center><hr>
+
+<h3>Huffman model</h3><hr>
+<h4>Schematic diagram</h4>
+<center>
+ <img src="./Latches and flip flops_files/huffmanModel.png" alt="Huffman model" width="500">
+</center><hr>
+
+<h4>Setup and hold times</h4>
+<dl><dt style="font-weight: bold;">
+ Setup time
+</dt><dd>
+ It is defined as the minimum amount of time <em>before</em> the active clock edge by which
+ the data must be stable for it to be latched correctly;
+ any violation in this required time causes incorrect data to be captured and is known as a setup violation
+<center><img src="./Latches and flip flops_files/setupPathDiag.png" alt="Setup path diagram" width="500"></center>
+</dd><dt>
+ Time available for data at D2 to reach D1 after active clock edge
+</dt><dd>
+ <em>T</em><sub>clk</sub>  + <em>T</em><sub>skew</sub> - <em>T</em><sub>setup</sub>
+</dd><dt>
+ Time needed for date to reach D1 from D2 after active clock edge
+</dt><dd>
+<em>T</em><sub>c2q </sub> + <em>T</em><sub>comb </sub>
+</dd><dt>
+ Resulting constraint
+</dt><dd>
+<em>T</em><sub>c2q </sub> + <em>T</em><sub>comb </sub> ≤
+<em>T</em><sub>clk</sub>  + <em>T</em><sub>skew</sub> - <em>T</em><sub>setup</sub>
+<p>
+<em>T</em><sub>c2q </sub> + <em>T</em><sub>comb </sub> + <em>T</em><sub>setup</sub>  ≤
+<em>T</em><sub>clk</sub>  + <em>T</em><sub>skew</sub>
+</p></dd><p></p><dt style="font-weight: bold;">
+ Hold time
+</dt><dd>
+ It is defined as the minimum amount of time <em>after</em> the active clock edge by which
+ the data must be stable for it to be latched correctly;
+ any violation in this required time causes incorrect data to be captured and is known as a hold violation
+</dd><dt>
+ Minimum time for data at D2 to reach D1 after active clock edge
+</dt><dd>
+ <em>T</em><sub>c2q</sub>  + <em>T</em><sub>comb</sub>
+</dd><dt>
+ Time for data to remain steady at D1 after active clock edge
+</dt><dd>
+<em>T</em><sub>skeq</sub> + <em>T</em><sub>hold</sub>
+</dd><dt>
+ Resulting constraint
+</dt><dd>
+ <em>T</em><sub>c2q</sub>  + <em>T</em><sub>comb</sub> ≥
+ <em>T</em><sub>skeq</sub> + <em>T</em><sub>hold</sub>
+</dd></dl>
+<hr>
+<!--https://www.edn.com/equations-and-impacts-of-setup-and-hold-time/-->
+
+<h4>Example for setup and hold times</h4>
+<center><img src="./Latches and flip flops_files/setupPathExDiag.png" alt="Setup path diagram" width="500"></center>
+<ul>
+<li>What is the minimum clock frequency?
+</li><li><em>T</em><sub>clk</sub> + <em>T</em><sub>skew</sub> ≥ <em>T</em><sub>c2q</sub> + <em>T</em><sub>comb</sub> + <em>T</em><sub>s2</sub>
+</li><li><em>T</em><sub>clk</sub> + 0.25ns ≥ 0.1ns + 5ns + 3ns
+</li><li><em>T</em><sub>clk</sub> ≥ 7.85ns
+</li></ul>
+
+<hr>
+<h3>Positive clock edge triggered DFF</h3>
+<center><table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center">
+<tbody><tr><td id="nobd">
+ <img src="./Latches and flip flops_files/petdff.png" alt="Positive clock edge triggered DFF" width="350">
+    </td><td id="nobd"><table cellpadding="10" cellspacing="0" border="0" id="nobd" align="center">
+<tbody><tr><td id="nobd" colspan="5" align="center">Transition table
+</td></tr><tr><td><em>C</em></td><td><em>D</em></td><td><em>R</em></td><td><em>S</em>
+    </td><td><em>R<sub>Δ</sub></em></td><td><em>S<sub>Δ</sub></em></td><td><em>Q<sub>Δ</sub></em>
+</td></tr><tr><td>0</td><td>—</td><td>—</td><td>—</td><td bgcolor="chartreuse">1</td><td bgcolor="chartreuse">1</td><td><em>Q</em>
+</td></tr><tr><td rowspan="8">1</td><td bgcolor="lavender">0</td><td bgcolor="chartreuse">1</td><td bgcolor="chartreuse">1</td><td bgcolor="lavender">0</td><td bgcolor="lavender">1</td><td>0
+<!--tr><td>1<td bgcolor="lightpink">0<td bgcolor="lightpink">0<td bgcolor="papayawhip">1<td bgcolor="papayawhip">0</tr-->
+<!--tr><td bgcolor="plum">1<td bgcolor="lavender">0<td bgcolor="lavender">1<td bgcolor="lavender">0<td bgcolor="lavender">1</tr-->
+<!--tr><td bgcolor="plum">1<td bgcolor="papayawhip">1<td bgcolor="papayawhip">0<td bgcolor="papayawhip">1<td bgcolor="papayawhip">0</tr-->
+</td></tr><tr><td bgcolor="papayawhip">1</td><td bgcolor="chartreuse">1</td><td bgcolor="chartreuse">1</td><td bgcolor="papayawhip">1</td><td bgcolor="papayawhip">0</td><td>1
+</td></tr><tr><td bgcolor="plum">—</td><td bgcolor="lavender">0</td><td bgcolor="lavender">1</td><td bgcolor="lavender">0</td><td bgcolor="lavender">1</td><td>0
+</td></tr><tr><td bgcolor="plum">—</td><td bgcolor="papayawhip">1</td><td bgcolor="papayawhip">0</td><td bgcolor="papayawhip">1</td><td bgcolor="papayawhip">0</td><td>1
+</td></tr><tr><td>—</td><td bgcolor="lightpink">0</td><td bgcolor="lightpink">0</td><td bgcolor="papayawhip">1</td><td bgcolor="papayawhip">0</td><td>1
+</td></tr></tbody></table>
+</td></tr></tbody></table></center>
+
+<ul><li>
+<em>S<sub>Δ</sub></em> = (<em>C · A</em>)' = <em>C'</em>+<em> A'</em>=
+                       <em>C'</em> + <em>B · S </em>=
+                       <em>C'</em> + (<em>D'</em> + <em>R'</em>) · <em>S</em>
+</li><li>
+<em>R<sub>Δ</sub></em> = (<em> S · C · B</em>)' =
+                       <em> S' </em> + <em>C'</em> + <em>B'</em> =
+                       <em>S'</em> + <em>C'</em> + <em>R · D</em>
+
+</li><li>
+As long as <em>C</em> = 0, <em>R</em> = <em>S</em> = 1 and
+the output latch retains its older value
+
+</li><li>When <em>C</em> changes from 0 to 1, <em>R</em> and <em>S</em> change as follows:
+ <ul>
+ <li> If <b><em>D</em>=0</b>: <em>R<sub>Δ</sub></em> = 0, <em>S<sub>Δ</sub></em> = 1 (from <em>R</em> = <em>S</em> = 1) and <b><em>Q</em>=0</b>
+ </li><li> If <b><em>D</em>=1</b>: <em>R<sub>Δ</sub></em> = 1, <em>S<sub>Δ</sub></em> = 0 (from <em>R</em> = <em>S</em> = 1) and <b><em>Q</em>=1</b>
+ </li><li> Thereafter, <em>R</em> and <em>S</em> remain stable, while <em>C</em>=1, irrespective of changes in <em>D</em>
+ </li></ul>
+ </li><li> The invalid state of <em>R</em> = <em>S</em> = 0 is never reached
+ </li><li> If some how <em>R</em> = <em>S</em> = 0, state immediately changes to <em>R</em> = 1 and <em>S</em> = 0
+</li></ul>
+<hr>
+
+<h3>Types of sequential m/cs</h3>
+<dl>
+<dt>Moore m/c</dt><dd>Outputs depend only on the present state</dd>
+<dt>Mealy m/c</dt><dd>Outputs depend on the present state and also on the inputs (transducer)</dd>
+<p>Both are computationally equivalent
+</p></dl>
+<hr>
+
+<h3>Shift register</h3>
+<center><img src="./Latches and flip flops_files/shiftReg.png" alt="Shift register" width="500"></center>
+<hr>
+
+<h3>Barrel shift/rotate</h3>
+<center><img src="./Latches and flip flops_files/barrelShiftRotate.png" alt="Shift register" width="800"></center>
+<hr>
+
+<h3>Synchronous up/down counter</h3>
+<center><img src="./Latches and flip flops_files/sync4UDC.png" alt="Sync up/down counter" width="750"></center>
+
+<h4>Up counting</h4>
+<center><img src="./Latches and flip flops_files/sync4UDC(1).png" alt="Sync up/down counter -- counting up" width="750"></center>
+
+<h4>Down counting</h4>
+<center><img src="./Latches and flip flops_files/sync4UDC(2).png" alt="Sync up/down counter -- counting down" width="750"></center>
+<hr>
+</blockquote>
+
+ 
+</body></html>

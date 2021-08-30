@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://cse.iitkgp.ac.in/~wbcm/wbcm/notices/public/cs210022021s/sicSA.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <title>
+ State assignment for asynchronous m/c design
+</title><style type="text/css">
+body { margin:0; padding:0; counter-reset: mycount; }
+p {text-align:justify}
+li {text-align:justify}
+blockquote {text-align:justify}
+#noul {text-decoration:none}
+#noul:hover {text-decoration:underline}
+table {border:solid thin}
+td {border:solid thin}
+th {border:solid thin}
+dt {font-weight:bold}
+#nobd {border:none}
+
+.mycount:before{ counter-increment: mycount; content: " (" counter(mycount, lower-alpha) ") "; }
+
+#inline-list {
+ //border: 1px solid #000;
+ //margin: 2em;
+ //width: 80%;
+ //padding: 5px;
+ //font-family: Verdana, sans-serif;
+ }
+#inline-list ul, #inline-list ol, #inline-list li {
+ display: inline;
+ margin: 0;
+ padding: 0;
+ color: #339;
+ font-weight: bold;
+ }
+</style>
+<script> 
+function refreshPeriodic() { 
+   // Reload the page every 120 seconds 
+   location.reload(); 
+   timerID = setTimeout("refreshPeriodic()",1200000); 
+} 
+timerID = setTimeout("refreshPeriodic()",1200000); 
+</script>
+
+<script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+<script type="text/javascript" src="./State assignment for asynchronous m_c design_files/MathJax.js.download">
+</script>
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  
+<body bgcolor="#e0ffff" data-new-gr-c-s-check-loaded="14.1005.0" data-gr-ext-installed=""><div id="MathJax_Message" style="display: none;"></div>
+<table cellpadding="10" cellspacing="0" border="0" width="100%" id="nobd">
+<tbody><tr><td bgcolor="#666677" id="nobd"><h2 align="center"><font color="#ddddff">
+  State assignment for asynchronous m/c design
+</font></h2></td></tr></tbody></table>
+<blockquote>
+<h3>Setup</h3>
+<ul>
+<li>Inputs are expected to change one at a time (SIC)
+</li><li>No changes in inputs until the m/c state stabilises (fundamental mode of operation)
+</li><li>Assume that m/c has already been optimised
+</li><li>States are mostly stable (recognised by self loops and permissible incoming transitions
+                              on some inputs)
+</li><li>Some states may be unstable
+</li></ul>
+
+<h3>Original flow graph</h3>
+<ul>
+<li>Consider the following flow graph
+</li><li>All states are stable for some inputs (each state has a self loop and a permissible incoming
+                                           transition on some input)
+</li><li>A Transition is present between any pair of states
+</li><li>Therefore, it would be desirable to assign codes to the states so that they are adjacent
+    to each other
+</li><li>With four states, encoding may be attempted using two bits, as shown next
+</li></ul>
+<svg width="391pt" height="144pt" viewBox="0.00 0.00 391.00 143.83" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 139.833)">
+<title>G</title>
+<polygon fill="transparent" stroke="none" points="-4,4 -4,-139.833 387,-139.833 387,4 -4,4"></polygon>
+<!-- sA -->
+<g id="node1" class="node"><title>sA</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-33.8335" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-30.1335" font-family="sans,serif" font-size="14.00">A</text>
+</g>
+<!-- sA&#45;&gt;sA -->
+<g id="edge1" class="edge"><title>sA-&gt;sA</title>
+<path fill="none" stroke="black" d="M16.4531,-50.4975C14.1094,-60.4585 17.625,-69.8335 27,-69.8335 33.0059,-69.8335 36.607,-65.986 37.8035,-60.6017"></path>
+<polygon fill="black" stroke="black" points="41.2997,-60.4054 37.5469,-50.4975 34.302,-60.5832 41.2997,-60.4054"></polygon>
+<text text-anchor="middle" x="27" y="-73.6335" font-family="sans,serif" font-size="14.00">00,01</text>
+</g>
+<!-- sD -->
+<g id="node4" class="node"><title>sD</title>
+<ellipse fill="none" stroke="black" cx="148" cy="-84.8335" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="148" y="-81.1335" font-family="sans,serif" font-size="14.00">D</text>
+</g>
+<!-- sA&#45;&gt;sD -->
+<g id="edge2" class="edge"><title>sA-&gt;sD</title>
+<path fill="none" stroke="black" d="M50.1041,-43.3066C68.4401,-51.1649 94.744,-62.4381 115.32,-71.2563"></path>
+<polygon fill="black" stroke="black" points="114.04,-74.5157 124.61,-75.2379 116.798,-68.0817 114.04,-74.5157"></polygon>
+<text text-anchor="middle" x="87.5" y="-68.6335" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+<!-- sB -->
+<g id="node2" class="node"><title>sB</title>
+<ellipse fill="none" stroke="black" cx="252" cy="-33.8335" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="252" y="-30.1335" font-family="sans,serif" font-size="14.00">B</text>
+</g>
+<!-- sB&#45;&gt;sA -->
+<g id="edge4" class="edge"><title>sB-&gt;sA</title>
+<path fill="none" stroke="black" d="M224.804,-33.8335C185.021,-33.8335 109.252,-33.8335 64.2207,-33.8335"></path>
+<polygon fill="black" stroke="black" points="64.0174,-30.3336 54.0174,-33.8335 64.0173,-37.3336 64.0174,-30.3336"></polygon>
+<text text-anchor="middle" x="148" y="-37.6335" font-family="sans,serif" font-size="14.00">01</text>
+</g>
+<!-- sB&#45;&gt;sB -->
+<g id="edge3" class="edge"><title>sB-&gt;sB</title>
+<path fill="none" stroke="black" d="M242.786,-50.8708C240.905,-60.6914 243.977,-69.8335 252,-69.8335 257.015,-69.8335 260.095,-66.2623 261.241,-61.1864"></path>
+<polygon fill="black" stroke="black" points="264.74,-60.8617 261.214,-50.8708 257.74,-60.8797 264.74,-60.8617"></polygon>
+<text text-anchor="middle" x="252" y="-73.6335" font-family="sans,serif" font-size="14.00">00,10</text>
+</g>
+<!-- sC -->
+<g id="node3" class="node"><title>sC</title>
+<ellipse fill="none" stroke="black" cx="356" cy="-45.8335" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="356" y="-42.1335" font-family="sans,serif" font-size="14.00">C</text>
+</g>
+<!-- sB&#45;&gt;sC -->
+<g id="edge5" class="edge"><title>sB-&gt;sC</title>
+<path fill="none" stroke="black" d="M277.7,-28.0645C288.051,-26.4762 300.173,-25.7045 311,-27.8335 315.495,-28.7173 320.108,-30.0639 324.578,-31.6311"></path>
+<polygon fill="black" stroke="black" points="323.444,-34.9455 334.032,-35.3202 325.989,-28.4244 323.444,-34.9455"></polygon>
+<text text-anchor="middle" x="304" y="-31.6335" font-family="sans,serif" font-size="14.00">11</text>
+</g>
+<!-- sC&#45;&gt;sA -->
+<g id="edge7" class="edge"><title>sC-&gt;sA</title>
+<path fill="none" stroke="black" d="M336.669,-33.0271C321.882,-23.564 300.134,-11.541 279,-6.83346 202.318,10.2472 109.962,-9.82914 61.4771,-23.4023"></path>
+<polygon fill="black" stroke="black" points="60.4588,-20.0532 51.8182,-26.1843 62.3963,-26.7798 60.4588,-20.0532"></polygon>
+<text text-anchor="middle" x="200" y="-4.63346" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sC&#45;&gt;sB -->
+<g id="edge8" class="edge"><title>sC-&gt;sB</title>
+<path fill="none" stroke="black" d="M328.941,-45.3182C318.925,-44.9023 307.402,-44.1587 297,-42.8335 294.1,-42.4639 291.105,-42.0096 288.105,-41.5031"></path>
+<polygon fill="black" stroke="black" points="288.492,-38.0151 278.021,-39.6282 287.213,-44.8972 288.492,-38.0151"></polygon>
+<text text-anchor="middle" x="304" y="-47.6335" font-family="sans,serif" font-size="14.00">10</text>
+</g>
+<!-- sC&#45;&gt;sC -->
+<g id="edge6" class="edge"><title>sC-&gt;sC</title>
+<path fill="none" stroke="black" d="M346.786,-62.8708C344.905,-72.6914 347.977,-81.8335 356,-81.8335 361.015,-81.8335 364.095,-78.2623 365.241,-73.1864"></path>
+<polygon fill="black" stroke="black" points="368.74,-72.8617 365.214,-62.8708 361.74,-72.8797 368.74,-72.8617"></polygon>
+<text text-anchor="middle" x="356" y="-85.6335" font-family="sans,serif" font-size="14.00">0,1</text>
+</g>
+<!-- sD&#45;&gt;sB -->
+<g id="edge10" class="edge"><title>sD-&gt;sB</title>
+<path fill="none" stroke="black" d="M170.134,-74.2662C184.768,-66.9494 204.467,-57.1 220.758,-48.9543"></path>
+<polygon fill="black" stroke="black" points="222.514,-51.9898 229.893,-44.3872 219.383,-45.7289 222.514,-51.9898"></polygon>
+<text text-anchor="middle" x="200" y="-65.6335" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sD&#45;&gt;sC -->
+<g id="edge11" class="edge"><title>sD-&gt;sC</title>
+<path fill="none" stroke="black" d="M173.492,-91.4807C200.031,-97.552 243.36,-104.146 279,-93.8335 297.87,-88.3735 316.557,-76.678 330.68,-66.199"></path>
+<polygon fill="black" stroke="black" points="333.066,-68.7787 338.844,-59.8982 328.789,-63.2372 333.066,-68.7787"></polygon>
+<text text-anchor="middle" x="252" y="-102.633" font-family="sans,serif" font-size="14.00">01</text>
+</g>
+<!-- sD&#45;&gt;sD -->
+<g id="edge9" class="edge"><title>sD-&gt;sD</title>
+<path fill="none" stroke="black" d="M138.786,-101.871C136.905,-111.691 139.977,-120.833 148,-120.833 153.015,-120.833 156.095,-117.262 157.241,-112.186"></path>
+<polygon fill="black" stroke="black" points="160.74,-111.862 157.214,-101.871 153.74,-111.88 160.74,-111.862"></polygon>
+<text text-anchor="middle" x="148" y="-124.633" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+</g>
+</svg>
+
+<h3>Flow graph after state encoding with 2 bits</h3>
+
+<svg width="305pt" height="224pt" viewBox="0.00 0.00 304.80 224.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 220)">
+<title>G</title>
+<polygon fill="transparent" stroke="none" points="-4,4 -4,-220 300.797,-220 300.797,4 -4,4"></polygon>
+<!-- sA -->
+<g id="node1" class="node"><title>sA</title>
+<ellipse fill="none" stroke="black" cx="34" cy="-18" rx="33.5952" ry="18"></ellipse>
+<text text-anchor="middle" x="34" y="-14.3" font-family="sans,serif" font-size="14.00">A (00)</text>
+</g>
+<!-- sA&#45;&gt;sA -->
+<g id="edge1" class="edge"><title>sA-&gt;sA</title>
+<path fill="none" stroke="black" d="M65.3553,-24.7434C76.6162,-24.8884 85.797,-22.6406 85.797,-18 85.797,-14.8821 81.6526,-12.8443 75.5175,-11.8867"></path>
+<polygon fill="black" stroke="black" points="75.5528,-8.38227 65.3553,-11.2566 75.1195,-15.3689 75.5528,-8.38227"></polygon>
+<text text-anchor="middle" x="101.297" y="-14.3" font-family="sans,serif" font-size="14.00">00,01</text>
+</g>
+<!-- sD -->
+<g id="node4" class="node"><title>sD</title>
+<ellipse fill="none" stroke="black" cx="34" cy="-198" rx="34.394" ry="18"></ellipse>
+<text text-anchor="middle" x="34" y="-194.3" font-family="sans,serif" font-size="14.00">D (10)</text>
+</g>
+<!-- sA&#45;&gt;sD -->
+<g id="edge2" class="edge"><title>sA-&gt;sD</title>
+<path fill="none" stroke="black" d="M34,-36.2499C34,-67.7314 34,-132.45 34,-169.775"></path>
+<polygon fill="black" stroke="black" points="30.5001,-169.969 34,-179.969 37.5001,-169.969 30.5001,-169.969"></polygon>
+<text text-anchor="middle" x="18.5" y="-106.813" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+<!-- sB -->
+<g id="node2" class="node"><title>sB</title>
+<ellipse fill="none" stroke="black" cx="214" cy="-18" rx="33.5952" ry="18"></ellipse>
+<text text-anchor="middle" x="214" y="-14.3" font-family="sans,serif" font-size="14.00">B (01)</text>
+</g>
+<!-- sB&#45;&gt;sA -->
+<g id="edge4" class="edge"><title>sB-&gt;sA</title>
+<path fill="none" stroke="black" d="M180.143,-18C151.322,-18 109.711,-18 78.2555,-18"></path>
+<polygon fill="black" stroke="black" points="78.0104,-14.5001 68.0103,-18 78.0103,-21.5001 78.0104,-14.5001"></polygon>
+<text text-anchor="middle" x="136.199" y="-21.8" font-family="sans,serif" font-size="14.00">01</text>
+</g>
+<!-- sB&#45;&gt;sB -->
+<g id="edge3" class="edge"><title>sB-&gt;sB</title>
+<path fill="none" stroke="black" d="M245.355,-24.7434C256.616,-24.8884 265.797,-22.6406 265.797,-18 265.797,-14.8821 261.653,-12.8443 255.518,-11.8867"></path>
+<polygon fill="black" stroke="black" points="255.553,-8.38227 245.355,-11.2566 255.12,-15.3689 255.553,-8.38227"></polygon>
+<text text-anchor="middle" x="281.297" y="-14.3" font-family="sans,serif" font-size="14.00">00,10</text>
+</g>
+<!-- sC -->
+<g id="node3" class="node"><title>sC</title>
+<ellipse fill="none" stroke="black" cx="214" cy="-198" rx="33.5952" ry="18"></ellipse>
+<text text-anchor="middle" x="214" y="-194.3" font-family="sans,serif" font-size="14.00">C (11)</text>
+</g>
+<!-- sB&#45;&gt;sC -->
+<g id="edge5" class="edge"><title>sB-&gt;sC</title>
+<path fill="none" stroke="black" d="M209.757,-35.9172C206.72,-67.2388 206.443,-132.175 208.923,-169.651"></path>
+<polygon fill="black" stroke="black" points="205.455,-170.198 209.738,-179.888 212.433,-169.642 205.455,-170.198"></polygon>
+<text text-anchor="middle" x="202.84" y="-106.584" font-family="sans,serif" font-size="14.00">11</text>
+</g>
+<!-- sC&#45;&gt;sA -->
+<g id="edge7" class="edge"><title>sC-&gt;sA</title>
+<path fill="none" stroke="black" d="M198.026,-182.026C166.136,-150.136 94.4618,-78.4618 57.3141,-41.3141"></path>
+<polygon fill="black" stroke="black" points="59.484,-38.5342 49.938,-33.938 54.5342,-43.484 59.484,-38.5342"></polygon>
+<text text-anchor="middle" x="120.67" y="-115.47" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sC&#45;&gt;sB -->
+<g id="edge8" class="edge"><title>sC-&gt;sB</title>
+<path fill="none" stroke="black" d="M218.243,-180.083C221.28,-148.761 221.557,-83.8252 219.077,-46.3486"></path>
+<polygon fill="black" stroke="black" points="222.545,-45.8025 218.262,-36.1118 215.567,-46.3581 222.545,-45.8025"></polygon>
+<text text-anchor="middle" x="225.66" y="-117.016" font-family="sans,serif" font-size="14.00">10</text>
+</g>
+<!-- sC&#45;&gt;sC -->
+<g id="edge6" class="edge"><title>sC-&gt;sC</title>
+<path fill="none" stroke="black" d="M245.355,-204.743C256.616,-204.888 265.797,-202.641 265.797,-198 265.797,-194.882 261.653,-192.844 255.518,-191.887"></path>
+<polygon fill="black" stroke="black" points="255.553,-188.382 245.355,-191.257 255.12,-195.369 255.553,-188.382"></polygon>
+<text text-anchor="middle" x="281.297" y="-194.3" font-family="sans,serif" font-size="14.00">01,11</text>
+</g>
+<!-- sD&#45;&gt;sB -->
+<g id="edge10" class="edge"><title>sD-&gt;sB</title>
+<path fill="none" stroke="black" d="M49.9738,-182.026C81.8636,-150.136 153.538,-78.4618 190.686,-41.3141"></path>
+<polygon fill="black" stroke="black" points="193.466,-43.484 198.062,-33.938 188.516,-38.5342 193.466,-43.484"></polygon>
+<text text-anchor="middle" x="113.33" y="-100.47" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sD&#45;&gt;sC -->
+<g id="edge11" class="edge"><title>sD-&gt;sC</title>
+<path fill="none" stroke="black" d="M68.7058,-198C97.5261,-198 138.697,-198 169.859,-198"></path>
+<polygon fill="black" stroke="black" points="170.011,-201.5 180.011,-198 170.011,-194.5 170.011,-201.5"></polygon>
+<text text-anchor="middle" x="126.283" y="-201.8" font-family="sans,serif" font-size="14.00">01</text>
+</g>
+<!-- sD&#45;&gt;sD -->
+<g id="edge9" class="edge"><title>sD-&gt;sD</title>
+<path fill="none" stroke="black" d="M66.0076,-204.746C77.2912,-204.854 86.4469,-202.605 86.4469,-198 86.4469,-194.906 82.3139,-192.875 76.1793,-191.909"></path>
+<polygon fill="black" stroke="black" points="76.2118,-188.404 66.0076,-191.254 75.762,-195.389 76.2118,-188.404"></polygon>
+<text text-anchor="middle" x="101.947" y="-194.3" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+</g>
+</svg>
+
+<ul>
+<li>It is quite evident that with 2 bits, the states cannot be encoded
+    to satisfy the adjacency requirement
+</li><li>So, let's try encoding with 3 bits
+</li><li>An annotated flow graph with one such encoding with three bits is shown below
+</li></ul>
+
+<h3>Flow graph after state encoding with 3 bits</h3>
+
+<svg width="313pt" height="310pt" viewBox="0.00 0.00 313.35 310.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 306)">
+<title>G</title>
+<polygon fill="transparent" stroke="none" points="-4,4 -4,-306 309.347,-306 309.347,4 -4,4"></polygon>
+<!-- sA -->
+<g id="node1" class="node"><title>sA</title>
+<ellipse fill="none" stroke="black" cx="38" cy="-18" rx="38.1938" ry="18"></ellipse>
+<text text-anchor="middle" x="38" y="-14.3" font-family="sans,serif" font-size="14.00">A (000)</text>
+</g>
+<!-- sA&#45;&gt;sA -->
+<g id="edge1" class="edge"><title>sA-&gt;sA</title>
+<path fill="none" stroke="black" d="M73.7651,-24.7484C85.2467,-24.6791 94.3466,-22.4297 94.3466,-18 94.3466,-15.0238 90.2387,-13.0318 84.0607,-12.024"></path>
+<polygon fill="black" stroke="black" points="83.999,-8.50962 73.7651,-11.2516 83.4753,-15.49 83.999,-8.50962"></polygon>
+<text text-anchor="middle" x="109.847" y="-14.3" font-family="sans,serif" font-size="14.00">00,01</text>
+</g>
+<!-- sD -->
+<g id="node4" class="node"><title>sD</title>
+<ellipse fill="none" stroke="black" cx="124.4" cy="-284.4" rx="38.1938" ry="18"></ellipse>
+<text text-anchor="middle" x="124.4" y="-280.7" font-family="sans,serif" font-size="14.00">D (110)</text>
+</g>
+<!-- sA&#45;&gt;sD -->
+<g id="edge2" class="edge"><title>sA-&gt;sD</title>
+<path fill="none" stroke="black" d="M43.8031,-35.8929C58.5898,-81.4853 97.7616,-202.265 115.477,-256.886"></path>
+<polygon fill="black" stroke="black" points="112.208,-258.153 118.622,-266.585 118.866,-255.993 112.208,-258.153"></polygon>
+<text text-anchor="middle" x="64.1399" y="-150.19" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+<!-- sB -->
+<g id="node2" class="node"><title>sB</title>
+<ellipse fill="none" stroke="black" cx="218" cy="-18" rx="38.1938" ry="18"></ellipse>
+<text text-anchor="middle" x="218" y="-14.3" font-family="sans,serif" font-size="14.00">B (001)</text>
+</g>
+<!-- sB&#45;&gt;sA -->
+<g id="edge4" class="edge"><title>sB-&gt;sA</title>
+<path fill="none" stroke="black" d="M179.385,-18C152.337,-18 115.976,-18 86.9017,-18"></path>
+<polygon fill="black" stroke="black" points="86.5507,-14.5001 76.5507,-18 86.5506,-21.5001 86.5507,-14.5001"></polygon>
+<text text-anchor="middle" x="140.144" y="-21.8" font-family="sans,serif" font-size="14.00">01</text>
+</g>
+<!-- sB&#45;&gt;sB -->
+<g id="edge3" class="edge"><title>sB-&gt;sB</title>
+<path fill="none" stroke="black" d="M253.765,-24.7484C265.247,-24.6791 274.347,-22.4297 274.347,-18 274.347,-15.0238 270.239,-13.0318 264.061,-12.024"></path>
+<polygon fill="black" stroke="black" points="263.999,-8.50962 253.765,-11.2516 263.475,-15.49 263.999,-8.50962"></polygon>
+<text text-anchor="middle" x="289.847" y="-14.3" font-family="sans,serif" font-size="14.00">00,10</text>
+</g>
+<!-- sC -->
+<g id="node3" class="node"><title>sC</title>
+<ellipse fill="none" stroke="black" cx="218" cy="-198" rx="38.1938" ry="18"></ellipse>
+<text text-anchor="middle" x="218" y="-194.3" font-family="sans,serif" font-size="14.00">C (011)</text>
+</g>
+<!-- sB&#45;&gt;sC -->
+<g id="edge5" class="edge"><title>sB-&gt;sC</title>
+<path fill="none" stroke="black" d="M213.757,-35.9172C210.72,-67.2388 210.443,-132.175 212.923,-169.651"></path>
+<polygon fill="black" stroke="black" points="209.455,-170.198 213.738,-179.888 216.433,-169.642 209.455,-170.198"></polygon>
+<text text-anchor="middle" x="206.84" y="-106.584" font-family="sans,serif" font-size="14.00">11</text>
+</g>
+<!-- sC&#45;&gt;sA -->
+<g id="edge7" class="edge"><title>sC-&gt;sA</title>
+<path fill="none" stroke="black" d="M201.389,-181.389C169.294,-149.294 98.6716,-78.6716 61.6705,-41.6705"></path>
+<polygon fill="black" stroke="black" points="63.8572,-38.9074 54.3112,-34.3112 58.9074,-43.8572 63.8572,-38.9074"></polygon>
+<text text-anchor="middle" x="124.53" y="-115.33" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sC&#45;&gt;sB -->
+<g id="edge8" class="edge"><title>sC-&gt;sB</title>
+<path fill="none" stroke="black" d="M222.243,-180.083C225.28,-148.761 225.557,-83.8252 223.077,-46.3486"></path>
+<polygon fill="black" stroke="black" points="226.545,-45.8025 222.262,-36.1118 219.567,-46.3581 226.545,-45.8025"></polygon>
+<text text-anchor="middle" x="229.66" y="-117.016" font-family="sans,serif" font-size="14.00">10</text>
+</g>
+<!-- sC&#45;&gt;sC -->
+<g id="edge6" class="edge"><title>sC-&gt;sC</title>
+<path fill="none" stroke="black" d="M253.765,-204.748C265.247,-204.679 274.347,-202.43 274.347,-198 274.347,-195.024 270.239,-193.032 264.061,-192.024"></path>
+<polygon fill="black" stroke="black" points="263.999,-188.51 253.765,-191.252 263.475,-195.49 263.999,-188.51"></polygon>
+<text text-anchor="middle" x="289.847" y="-194.3" font-family="sans,serif" font-size="14.00">01,11</text>
+</g>
+<!-- sD&#45;&gt;sB -->
+<g id="edge10" class="edge"><title>sD-&gt;sB</title>
+<path fill="none" stroke="black" d="M130.687,-266.507C146.706,-220.915 189.142,-100.135 208.333,-45.5137"></path>
+<polygon fill="black" stroke="black" points="211.728,-46.4099 211.741,-35.815 205.124,-44.0894 211.728,-46.4099"></polygon>
+<text text-anchor="middle" x="162.51" y="-159.81" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sD&#45;&gt;sC -->
+<g id="edge11" class="edge"><title>sD-&gt;sC</title>
+<path fill="none" stroke="black" d="M142.005,-268.149C156.386,-254.874 176.891,-235.947 192.978,-221.098"></path>
+<polygon fill="black" stroke="black" points="195.499,-223.533 200.473,-214.178 190.751,-218.389 195.499,-223.533"></polygon>
+<text text-anchor="middle" x="160.491" y="-248.423" font-family="sans,serif" font-size="14.00">01</text>
+</g>
+<!-- sD&#45;&gt;sD -->
+<g id="edge9" class="edge"><title>sD-&gt;sD</title>
+<path fill="none" stroke="black" d="M160.165,-291.148C171.647,-291.079 180.747,-288.83 180.747,-284.4 180.747,-281.424 176.639,-279.432 170.461,-278.424"></path>
+<polygon fill="black" stroke="black" points="170.399,-274.91 160.165,-277.652 169.875,-281.89 170.399,-274.91"></polygon>
+<text text-anchor="middle" x="196.247" y="-280.7" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+</g>
+</svg>
+
+<ul>
+<li>Just using an extra bit has not solved the problem
+</li><li>Note, that the <em>k</em>-bit binary codes may always be mapped onto a <em>k</em>-dimensional
+    hypercube
+</li><li>Since the maximum clique in a hypercube is of size 2, such adjacency requirements
+    will never be satisfied directly
+</li><li>However, its now possible to introduce intermediate unstable states through which the
+    transitions between non-adjacent stable states may be routed
+</li><li>Such an augmented flow graph with intermediate states is shown next
+</li></ul>
+
+<h3>Flow graph after state encoding with 3 bits and extra states</h3>
+
+<svg width="351pt" height="310pt" viewBox="0.00 0.00 351.00 310.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 306)">
+<title>G</title>
+<polygon fill="transparent" stroke="none" points="-4,4 -4,-306 347,-306 347,4 -4,4"></polygon>
+<!-- sA -->
+<g id="node1" class="node"><title>sA</title>
+<ellipse fill="none" stroke="black" cx="38" cy="-18" rx="38.1938" ry="18"></ellipse>
+<text text-anchor="middle" x="38" y="-14.3" font-family="sans,serif" font-size="14.00">A (000)</text>
+</g>
+<!-- sA&#45;&gt;sA -->
+<g id="edge1" class="edge"><title>sA-&gt;sA</title>
+<path fill="none" stroke="black" d="M73.7651,-24.7484C85.2467,-24.6791 94.3466,-22.4297 94.3466,-18 94.3466,-15.0238 90.2387,-13.0318 84.0607,-12.024"></path>
+<polygon fill="black" stroke="black" points="83.999,-8.50962 73.7651,-11.2516 83.4753,-15.49 83.999,-8.50962"></polygon>
+<text text-anchor="middle" x="109.847" y="-14.3" font-family="sans,serif" font-size="14.00">00,01</text>
+</g>
+<!-- sE -->
+<g id="node5" class="node"><title>sE</title>
+<ellipse fill="bisque" stroke="black" cx="38" cy="-198" rx="37.8943" ry="18"></ellipse>
+<text text-anchor="middle" x="38" y="-194.3" font-family="sans,serif" font-size="14.00">E (010)</text>
+</g>
+<!-- sA&#45;&gt;sE -->
+<g id="edge2" class="edge"><title>sA-&gt;sE</title>
+<path fill="none" stroke="black" d="M33.7565,-35.9172C30.7205,-67.2388 30.4425,-132.175 32.9226,-169.651"></path>
+<polygon fill="black" stroke="black" points="29.455,-170.198 33.7377,-179.888 36.4329,-169.642 29.455,-170.198"></polygon>
+<text text-anchor="middle" x="17.8396" y="-106.584" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+<!-- sB -->
+<g id="node2" class="node"><title>sB</title>
+<ellipse fill="none" stroke="black" cx="218" cy="-18" rx="38.1938" ry="18"></ellipse>
+<text text-anchor="middle" x="218" y="-14.3" font-family="sans,serif" font-size="14.00">B (001)</text>
+</g>
+<!-- sB&#45;&gt;sA -->
+<g id="edge4" class="edge"><title>sB-&gt;sA</title>
+<path fill="none" stroke="black" d="M179.385,-18C152.337,-18 115.976,-18 86.9017,-18"></path>
+<polygon fill="black" stroke="black" points="86.5507,-14.5001 76.5507,-18 86.5506,-21.5001 86.5507,-14.5001"></polygon>
+<text text-anchor="middle" x="140.144" y="-21.8" font-family="sans,serif" font-size="14.00">01</text>
+</g>
+<!-- sB&#45;&gt;sB -->
+<g id="edge3" class="edge"><title>sB-&gt;sB</title>
+<path fill="none" stroke="black" d="M253.765,-24.7484C265.247,-24.6791 274.347,-22.4297 274.347,-18 274.347,-15.0238 270.239,-13.0318 264.061,-12.024"></path>
+<polygon fill="black" stroke="black" points="263.999,-8.50962 253.765,-11.2516 263.475,-15.49 263.999,-8.50962"></polygon>
+<text text-anchor="middle" x="289.847" y="-14.3" font-family="sans,serif" font-size="14.00">00,10</text>
+</g>
+<!-- sC -->
+<g id="node3" class="node"><title>sC</title>
+<ellipse fill="none" stroke="black" cx="218" cy="-198" rx="38.1938" ry="18"></ellipse>
+<text text-anchor="middle" x="218" y="-194.3" font-family="sans,serif" font-size="14.00">C (011)</text>
+</g>
+<!-- sB&#45;&gt;sC -->
+<g id="edge5" class="edge"><title>sB-&gt;sC</title>
+<path fill="none" stroke="black" d="M213.757,-35.9172C210.72,-67.2388 210.443,-132.175 212.923,-169.651"></path>
+<polygon fill="black" stroke="black" points="209.455,-170.198 213.738,-179.888 216.433,-169.642 209.455,-170.198"></polygon>
+<text text-anchor="middle" x="206.84" y="-106.584" font-family="sans,serif" font-size="14.00">11</text>
+</g>
+<!-- sC&#45;&gt;sB -->
+<g id="edge7" class="edge"><title>sC-&gt;sB</title>
+<path fill="none" stroke="black" d="M222.243,-180.083C225.28,-148.761 225.557,-83.8252 223.077,-46.3486"></path>
+<polygon fill="black" stroke="black" points="226.545,-45.8025 222.262,-36.1118 219.567,-46.3581 226.545,-45.8025"></polygon>
+<text text-anchor="middle" x="229.66" y="-117.016" font-family="sans,serif" font-size="14.00">10</text>
+</g>
+<!-- sC&#45;&gt;sC -->
+<g id="edge6" class="edge"><title>sC-&gt;sC</title>
+<path fill="none" stroke="black" d="M253.765,-204.748C265.247,-204.679 274.347,-202.43 274.347,-198 274.347,-195.024 270.239,-193.032 264.061,-192.024"></path>
+<polygon fill="black" stroke="black" points="263.999,-188.51 253.765,-191.252 263.475,-195.49 263.999,-188.51"></polygon>
+<text text-anchor="middle" x="289.847" y="-194.3" font-family="sans,serif" font-size="14.00">01,11</text>
+</g>
+<!-- sC&#45;&gt;sE -->
+<g id="edge8" class="edge"><title>sC-&gt;sE</title>
+<path fill="none" stroke="black" d="M179.385,-198C152.153,-198 115.481,-198 86.3094,-198"></path>
+<polygon fill="black" stroke="black" points="85.9329,-194.5 75.9328,-198 85.9328,-201.5 85.9329,-194.5"></polygon>
+<text text-anchor="middle" x="125.847" y="-201.8" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sD -->
+<g id="node4" class="node"><title>sD</title>
+<ellipse fill="none" stroke="black" cx="124.4" cy="-284.4" rx="38.1938" ry="18"></ellipse>
+<text text-anchor="middle" x="124.4" y="-280.7" font-family="sans,serif" font-size="14.00">D (110)</text>
+</g>
+<!-- sD&#45;&gt;sD -->
+<g id="edge11" class="edge"><title>sD-&gt;sD</title>
+<path fill="none" stroke="black" d="M160.165,-291.148C171.647,-291.079 180.747,-288.83 180.747,-284.4 180.747,-281.424 176.639,-279.432 170.461,-278.424"></path>
+<polygon fill="black" stroke="black" points="170.399,-274.91 160.165,-277.652 169.875,-281.89 170.399,-274.91"></polygon>
+<text text-anchor="middle" x="196.247" y="-280.7" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+<!-- sF -->
+<g id="node6" class="node"><title>sF</title>
+<ellipse fill="bisque" stroke="black" cx="304.4" cy="-284.4" rx="37.0935" ry="18"></ellipse>
+<text text-anchor="middle" x="304.4" y="-280.7" font-family="sans,serif" font-size="14.00">F (111)</text>
+</g>
+<!-- sD&#45;&gt;sF -->
+<g id="edge12" class="edge"><title>sD-&gt;sF</title>
+<path fill="none" stroke="black" d="M163.015,-284.4C190.551,-284.4 227.74,-284.4 257.066,-284.4"></path>
+<polygon fill="black" stroke="black" points="257.082,-287.9 267.082,-284.4 257.082,-280.9 257.082,-287.9"></polygon>
+<text text-anchor="middle" x="225.54" y="-288.2" font-family="sans,serif" font-size="14.00">00,01</text>
+</g>
+<!-- sE&#45;&gt;sA -->
+<g id="edge9" class="edge"><title>sE-&gt;sA</title>
+<path fill="none" stroke="black" d="M42.2435,-180.083C45.2795,-148.761 45.5575,-83.8252 43.0774,-46.3486"></path>
+<polygon fill="black" stroke="black" points="46.545,-45.8025 42.2623,-36.1118 39.5671,-46.3581 46.545,-45.8025"></polygon>
+<text text-anchor="middle" x="49.6604" y="-117.016" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sE&#45;&gt;sD -->
+<g id="edge10" class="edge"><title>sE-&gt;sD</title>
+<path fill="none" stroke="black" d="M54.2512,-214.251C67.322,-227.322 85.8729,-245.873 100.615,-260.615"></path>
+<polygon fill="black" stroke="black" points="98.382,-263.332 107.928,-267.928 103.332,-258.382 98.382,-263.332"></polygon>
+<text text-anchor="middle" x="61.9331" y="-241.233" font-family="sans,serif" font-size="14.00">10,11</text>
+</g>
+<!-- sF&#45;&gt;sC -->
+<g id="edge14" class="edge"><title>sF-&gt;sC</title>
+<path fill="none" stroke="black" d="M288.149,-268.149C275.078,-255.078 256.527,-236.527 241.785,-221.785"></path>
+<polygon fill="black" stroke="black" points="244.018,-219.068 234.472,-214.472 239.068,-224.018 244.018,-219.068"></polygon>
+<text text-anchor="middle" x="257.967" y="-248.767" font-family="sans,serif" font-size="14.00">01</text>
+</g>
+<!-- sG -->
+<g id="node7" class="node"><title>sG</title>
+<ellipse fill="bisque" stroke="black" cx="304.4" cy="-104.4" rx="38.9931" ry="18"></ellipse>
+<text text-anchor="middle" x="304.4" y="-100.7" font-family="sans,serif" font-size="14.00">G (101)</text>
+</g>
+<!-- sF&#45;&gt;sG -->
+<g id="edge13" class="edge"><title>sF-&gt;sG</title>
+<path fill="none" stroke="black" d="M304.4,-266.15C304.4,-234.669 304.4,-169.95 304.4,-132.625"></path>
+<polygon fill="black" stroke="black" points="307.9,-132.431 304.4,-122.431 300.9,-132.431 307.9,-132.431"></polygon>
+<text text-anchor="middle" x="311.4" y="-203.187" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+<!-- sG&#45;&gt;sB -->
+<g id="edge15" class="edge"><title>sG-&gt;sB</title>
+<path fill="none" stroke="black" d="M287.741,-87.7412C274.629,-74.6292 256.191,-56.1913 241.566,-41.5665"></path>
+<polygon fill="black" stroke="black" points="243.861,-38.9109 234.315,-34.3146 238.911,-43.8606 243.861,-38.9109"></polygon>
+<text text-anchor="middle" x="257.654" y="-68.4538" font-family="sans,serif" font-size="14.00">00</text>
+</g>
+</g>
+</svg>
+
+
+<ul>
+<li>Now, all the transitions are between adjacent states
+</li><li>Unstable states have been introduced to facilitate transition between states with
+    non-adjacent codes
+</li><li>The edges have been routed through the adjacent states so that the transitions there are
+    deterministically decided by the inputs
+</li><li>Two edges representing transitions on disjoint set inputs may only be routed through
+    the same unstable state to avoid non-determinism
+</li><li>This method involves embedding the flow graph into the lowest dimension hypercube (here dimension is 3)
+</li></ul>
+
+<h3>Questions</h3>
+<ul>
+<li>
+How would you compare the state assignment given above as:
+ A↦000, B↦001, C↦011 and D↦110; and other intermediate states
+ as indicated with the state assignment
+ A↦010, B↦001, C↦011 and D↦111;?
+</li><li>
+ From the answer to this, could you identify an issue to consider while carrying out a
+ state assignment?
+</li></ul>
+
+<h3>Exercise</h3>
+<ul>
+<li> For the given FSM construct the next state function
+</li><li> Obtain a hazard free realisation for the next state function
+</li><li> Based on the discussion above, present a non-deterministic algorithm for
+     state assignment for fundamental mode design with the provision for state
+     minimisation
+</li></ul>
+
+</blockquote>
+<!-- http://www.cs.utah.edu/~hans/publications/async01_xbmsi.pdf -->
+</body></html>
