@@ -1,0 +1,35 @@
+go atlas
+
+mesh
+
+x.m l=0.0 spacing=0.15
+x.m l=0.5 spacing=0.1
+x.m l=0.75 spacing=0.01
+x.m l=1.25 spacing=0.01
+x.m l=1.5 spacing=0.1
+x.m l=2.0 spacing=0.1
+
+y.m l=0.0 spacing=0.1
+y.m l=0.3 spacing=0.01
+y.m l=0.4 spacing=0.01
+y.m l=1.0 spacing=0.1
+
+region num=1 silicon name=n-si
+
+electrode num=1 name=emitter x.min=0.8 x.max=0.9 y.min=0 y.max=0
+electrode num=2 name=base x.min=0.5 x.max=0.6 y.min=0 y.max=0
+electrode num=3 name=collector bottom
+
+doping region=1 uniform p.type conc=1e15
+doping uniform n.type conc=1e18 x.min=0.5 x.max=1.5 y.max=0.4
+doping uniform p.type conc=1e19 x.min=0.75 x.max=1.25 y.max=0.3
+
+models conmob fldmob consrh auger print bipolar
+method newton
+output con.band val.band
+
+solve init
+save outf=pnpbjt.str
+tonyplot pnpbjt.str
+
+quit

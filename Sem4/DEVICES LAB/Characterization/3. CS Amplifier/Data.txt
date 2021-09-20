@@ -1,0 +1,9 @@
+1. 5.35 = 14.57 dB (1000-100)
+2. 0.373 = -8.56 dB (1000-0) 	Not in saturation
+3. 2.68 = 8.57 dB (500-100)
+4. 1.6 = 4.13 dB (500-0)	Not in saturation
+
+
+Bandwidth
+1. Without cap - 6.688 MHz
+2. With cap - 6.40 MHz

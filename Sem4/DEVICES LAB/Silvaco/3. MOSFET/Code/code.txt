@@ -1,0 +1,89 @@
+go atlas
+mesh
+
+x.mesh loc=0.00 spac=0.50
+x.mesh loc=1 spac=0.02
+x.mesh loc=1.5 spac=0.05
+x.mesh loc=2 spac=0.02
+x.mesh loc=3 spac=0.5
+
+
+y.mesh loc=-0.02 spac=0.01
+y.mesh loc=0.00 spac=0.001
+y.mesh loc=0.1 spac=0.01
+y.mesh loc=0.2 spac=0.01
+y.mesh loc=0.6 spac=0.25
+
+
+region num=1 material=air y.max=0
+region num=2 y.max=0 x.min=1 x.max=2 oxide
+region num=3 y.min=0 y.max =0.6 silicon
+
+
+electrode name=gate x.min=1 x.max=2 y.min=-0.02 y.max=-0.02
+electrode name=source x.max=0.5 y.min=0 y.max=0
+electrode name=drain x.min=2.5 y.min=0 y.max=0
+electrode substrate
+
+
+doping uniform conc=1e17 p.type reg=3
+doping uniform n.type conc=1e20 x.min=0 x.max=1.1 y.min=0 y.max=0.1
+doping uniform n.type conc=1e20 x.min=1.9 x.max=3 y.min=0 y.max=0.1
+
+
+save outf = nmos.str
+tonyplot nmos.str
+
+
+interface qf=3e10 y.min=-0.01 y.max=0.01
+
+
+Models conmob srh auger bgn fldmob print
+contact name=gate workfunc=4.1
+Method newton trap
+output con.band val.band
+solve init
+save outf =nmosband_VG=0V.str
+tonyplot nmosband_VG=0V.str
+
+
+solve vdrain=0 vstep=0.1 vfinal=0.5 name=drain
+log outf = Id_vs_VG_withinterface.log
+solve vgate=0 vstep=0.1 vfinal=2.5 name=gate
+log off
+tonyplot Id_vs_VG_withinterface.log
+
+
+solve init
+solve vgate=0.1
+log outf=ID_vs_VD_1.log
+solve vdrain=0 vstep=0.1 vfinal=5 name=drain
+log off
+
+solve init
+solve vgate=0.5
+log outf = ID_vs_VD_2.log
+solve vdrain=0 vstep=0.1 vfinal=5 name=drain
+log off
+
+solve init
+solve vgate=1
+log outf=ID_vs_VD_3.log
+solve vdrain=0 vstep=0.1 vfinal=5 name=drain
+log off
+
+solve init
+solve vgate=1.5
+log outf=ID_vs_VD_4.log
+solve vdrain=0 vstep=0.1 vfinal=5 name=drain
+log off
+
+solve init
+solve vgate=2
+log outf = ID_vs_VD_5.log
+solve vdrain=0 vstep=0.1 vfinal=5 name=drain
+log off
+
+tonyplot –overlay ID_vs_VD_1.log ID_vs_VD_2.log ID_vs_VD_3.log ID_vs_VD_4.log ID_vs_VD_5.log
+
+quit

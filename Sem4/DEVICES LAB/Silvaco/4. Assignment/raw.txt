@@ -1,0 +1,54 @@
+go atlas
+
+mesh
+
+x.mesh loc=0.0 spac=0.5
+x.mesh loc=2.0 spac=0.25
+x.mesh loc=4.0 spac=0.2
+x.mesh loc=6.0 spac=0.2
+x.mesh loc=8.0 spac=0.25
+x.mesh loc=10.0 spac=0.5
+
+y.mesh loc=-1.0 spac=0.1
+y.mesh loc=0.0 spac=0.05
+y.mesh loc=2.0 spac=0.05
+y.mesh loc=4.0 spac=0.05
+y.mesh loc=5.0 spac=0.1
+
+
+region num=1 material=Silicon x.min=0 x.max=10.0 y.min=0.0 y.max=2.0
+region num=2 material=Silicon x.min=0 x.max=10.0 y.min=2.0 y.max=4.0
+
+
+elec num=1 name=Anode x.min=0.0 x.max=10.0 y.min=-1.0 y.max=0.0 material=Aluminum
+elec num=2 name=cathode x.min=0.0 x.max=10.0 y.min=4.0 y.max=5.0 material=Aluminum
+
+
+doping region=1 uniform p.type conc=1e16
+doping region=2 uniform n.type conc=1e16
+
+models srh conmob fldmob auger bgn
+
+method newton
+
+output con.band val.band
+
+solve init
+save outf=pnjunction.str
+tonyplot pnjunction.str
+
+log outf=diode_IV.log
+solve vanode=0.0 vstep=0.01 vfinal=1.0 name=anode
+tonyplot diode_IV.log
+log off
+
+############Diode CV Characteristics#############
+solve init
+solve vanode=0 vstep=-0.5 vfinal=-10 name=anode
+
+log outf=diode_cv.log
+
+solve vanode=-10 vstep=0.2 vfinal=0 name=anode AC FREQ=1e3
+
+tonyplot diode_cv.log
+quit

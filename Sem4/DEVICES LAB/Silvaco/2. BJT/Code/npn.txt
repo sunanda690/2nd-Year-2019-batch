@@ -1,0 +1,88 @@
+go atlas
+
+mesh
+
+x.m l=0.0 spacing=0.15
+x.m l=0.5 spacing=0.1
+x.m l=0.75 spacing=0.01
+x.m l=1.25 spacing=0.01
+x.m l=1.5 spacing=0.1
+x.m l=2.0 spacing=0.1
+
+y.m l=0.0 spacing=0.1
+y.m l=0.3 spacing=0.01
+y.m l=0.4 spacing=0.01
+y.m l=1.0 spacing=0.1
+
+region num=1 silicon name=n-si
+
+electrode num=1 name=emitter x.min=0.8 x.max=0.9 y.min=0 y.max=0
+electrode num=2 name=base x.min=0.5 x.max=0.6 y.min=0 y.max=0
+electrode num=3 name=collector bottom
+
+doping region=1 uniform n.type conc=1e15
+
+doping uniform p.type conc=1e18 x.min=0.5 x.max=1.5 y.max=0.4
+doping uniform n.type conc=1e19 x.min=0.75 x.max=1.25 y.max=0.3
+
+models conmob fldmob consrh auger print bipolar
+method newton
+output con.band val.band
+
+solve init
+save outf=npnbjt.str
+tonyplot npnbjt.str
+
+solve vcollector=0 vstep=0.1 vfinal=2.0 name=collector
+
+log outf=IC_vs_VBE.log
+solve vbase=0 vstep=0.05 vfinal=1 name=base
+log off
+
+tonyplot IC_vs_VBE.log
+
+solve init 
+solve vbase=0.025
+solve vbase=0.05
+
+solve vbase=0 vstep=0.1 vfinal=1 name=base
+contact name=base current
+
+solve ibase=1e-6
+save outf=bjt_1.str master
+
+solve ibase=2e-6
+save outf=bjt_2.str master
+
+solve ibase=3e-6
+save outf=bjt_3.str master
+
+solve ibase=4e-6
+save outf=bjt_4.str master
+
+solve ibase=5e-6
+save outf=bjt_5.str master
+
+load inf=bjt_1.str master
+log outf=bjt_1.log
+solve vcollector=0 vstep=0.25 vfinal=5.0 name=collector
+
+load inf=bjt_2.str master
+log outf=bjt_2.log
+solve vcollector=0 vstep=0.25 vfinal=5.0 name=collector
+
+load inf=bjt_3.str master
+log outf=bjt_3.log
+solve vcollector=0 vstep=0.25 vfinal=5.0 name=collector
+
+load inf=bjt_4.str master
+log outf=bjt_4.log
+solve vcollector=0 vstep=0.25 vfinal=5.0 name=collector
+
+load inf=bjt_5.str master
+log outf=bjt_5.log
+solve vcollector=0 vstep=0.25 vfinal=5.0 name=collector
+
+tonyplot -overlay bjt_1.log bjt_2.log bjt_3.log bjt_4.log bjt_5.log
+
+quit
