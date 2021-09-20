@@ -1,0 +1,14 @@
+syms l rho phi;
+syms x y z;
+assume(phi, 'real');
+Hphi = z / sqrt(rho^2 + z^2) + (l-z)/ sqrt(rho^2 + (l-z)^2);
+T = [cos(phi) -sin(phi) 0; sin(phi) cos(phi) 0; 0 0 1];
+H = T * [0; Hphi; 0];
+Hx = subs(H(1), [rho phi], [x^2 + y^2 atan(y/x)]);
+Hy = subs(H(2), [rho phi], [x^2 + y^2 atan(y/x)]);
+Hz = subs(H(3), [rho phi], [x^2 + y^2 atan(y/x)]);
+% A = vectorPotential([Hx, Hy, 0], [x y z]);
+D = curl([Hx, Hy, Hz], [x y z]);
+D = T' * D;
+D = subs(D, [x, y], [rho*cos(phi), rho*sin(phi)]);
+simplify(D);
